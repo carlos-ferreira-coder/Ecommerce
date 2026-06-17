@@ -40,391 +40,3486 @@ Sistema externo responsável pelo cálculo de frete, geração de etiquetas e at
 
 # 🛍️ Loja Virtual
 
-## UC-LOJ-001 — Visualizar página inicial
+---
 
-**Ator:** Cliente
+## UC-LOJ-001 — Visualizar Página Inicial
 
-## UC-LOJ-002 — Buscar produtos
+### 🎯 Objetivo
 
-**Ator:** Cliente
+Permitir que o cliente acesse a página inicial da loja e visualize os principais conteúdos disponíveis.
 
-## UC-LOJ-003 — Filtrar produtos
+### 👥 Atores
 
-**Ator:** Cliente
+- Cliente
 
-## UC-LOJ-004 — Visualizar produto
+### 📋 Pré-condições
 
-**Ator:** Cliente
+- A loja deve estar disponível.
 
-## UC-LOJ-005 — Selecionar variações
+### ✅ Pós-condições
 
-**Ator:** Cliente
+- A página inicial é apresentada ao cliente.
 
-## UC-LOJ-006 — Adicionar produto ao carrinho
+### 🔄 Fluxo Principal
 
-**Ator:** Cliente
+1. O cliente acessa a URL da loja.
+2. O sistema carrega a página inicial.
+3. O sistema exibe banners, categorias e produtos em destaque.
 
-## UC-LOJ-007 — Gerenciar carrinho
+### 🔀 Fluxos Alternativos
 
-**Ator:** Cliente
+#### A1. Loja indisponível
 
-## UC-LOJ-008 — Aplicar cupom de desconto
+1. O sistema identifica indisponibilidade.
+2. Exibe página de manutenção ou mensagem apropriada.
 
-**Ator:** Cliente
+### 📜 Regras de Negócio
 
-## UC-LOJ-009 — Calcular frete
+- RN001: Apenas produtos ativos podem ser exibidos.
 
-**Ator:** Cliente / Sistema Logístico
+---
 
-## UC-LOJ-010 — Finalizar compra
+## UC-LOJ-002 — Buscar Produtos
 
-**Ator:** Cliente
+### 🎯 Objetivo
 
-## UC-LOJ-011 — Realizar pagamento
+Permitir que o cliente encontre produtos por meio de pesquisa textual.
 
-**Ator:** Cliente / Gateway de Pagamento
+### 👥 Atores
 
-## UC-LOJ-012 — Acompanhar pedido
+- Cliente
 
-**Ator:** Cliente
+### 📋 Pré-condições
 
-## UC-LOJ-013 — Cancelar pedido
+- Existirem produtos cadastrados.
 
-**Ator:** Cliente
+### ✅ Pós-condições
 
-## UC-LOJ-014 — Solicitar devolução
+- A lista de produtos correspondente é apresentada.
 
-**Ator:** Cliente
+### 🔄 Fluxo Principal
 
-## UC-LOJ-015 — Solicitar troca
+1. O cliente informa um termo de pesquisa.
+2. O sistema processa a busca.
+3. O sistema apresenta os resultados encontrados.
 
-**Ator:** Cliente
+### 🔀 Fluxos Alternativos
 
-## UC-LOJ-016 — Adicionar produto aos favoritos
+#### A1. Nenhum resultado encontrado
 
-**Ator:** Cliente
+1. O sistema informa que não foram encontrados produtos.
 
-## UC-LOJ-017 — Avaliar produto
+### 📜 Regras de Negócio
 
-**Ator:** Cliente
+- RN002: Apenas produtos publicados podem aparecer na busca.
+
+---
+
+## UC-LOJ-003 — Filtrar Produtos
+
+### 🎯 Objetivo
+
+Permitir que o cliente refine os resultados por filtros.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Existirem filtros disponíveis.
+
+### ✅ Pós-condições
+
+- Produtos filtrados são apresentados.
+
+### 🔄 Fluxo Principal
+
+1. O cliente seleciona um ou mais filtros.
+2. O sistema aplica os critérios.
+3. O sistema atualiza a listagem.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nenhum produto atende aos filtros
+
+1. O sistema informa que não há resultados.
+
+### 📜 Regras de Negócio
+
+- RN003: Os filtros devem considerar apenas produtos ativos.
+
+---
+
+## UC-LOJ-004 — Visualizar Produto
+
+### 🎯 Objetivo
+
+Permitir que o cliente visualize os detalhes de um produto.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Produto ativo.
+
+### ✅ Pós-condições
+
+- Página do produto exibida.
+
+### 🔄 Fluxo Principal
+
+1. O cliente seleciona um produto.
+2. O sistema exibe informações completas.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Produto indisponível
+
+1. O sistema informa indisponibilidade.
+
+### 📜 Regras de Negócio
+
+- RN004: Produtos inativos não devem possuir página pública.
+
+---
+
+## UC-LOJ-005 — Selecionar Variações
+
+### 🎯 Objetivo
+
+Permitir que o cliente escolha uma variante do produto.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Produto possuir variantes.
+
+### ✅ Pós-condições
+
+- Variante selecionada.
+
+### 🔄 Fluxo Principal
+
+1. O cliente escolhe uma variante.
+2. O sistema atualiza preço, estoque e imagens.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Variante indisponível
+
+1. O sistema informa indisponibilidade.
+
+### 📜 Regras de Negócio
+
+- RN005: Cada variante possui estoque próprio.
+
+---
+
+## UC-LOJ-006 — Adicionar Produto ao Carrinho
+
+### 🎯 Objetivo
+
+Permitir que o cliente adicione produtos ao carrinho.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Produto ativo.
+- Estoque disponível.
+
+### ✅ Pós-condições
+
+- Produto registrado no carrinho.
+
+### 🔄 Fluxo Principal
+
+1. O cliente seleciona quantidade.
+2. Aciona "Adicionar ao Carrinho".
+3. O sistema valida estoque.
+4. O sistema adiciona o item.
+5. Atualiza o resumo do carrinho.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Estoque insuficiente
+
+1. O sistema informa indisponibilidade.
+
+### 📜 Regras de Negócio
+
+- RN006: Não permitir quantidade superior ao estoque.
+
+---
+
+## UC-LOJ-007 — Gerenciar Carrinho
+
+### 🎯 Objetivo
+
+Permitir alterações no carrinho.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Existir carrinho ativo.
+
+### ✅ Pós-condições
+
+- Carrinho atualizado.
+
+### 🔄 Fluxo Principal
+
+1. O cliente altera quantidades ou remove itens.
+2. O sistema recalcula valores.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Produto indisponível
+
+1. Sistema remove ou alerta sobre o item.
+
+### 📜 Regras de Negócio
+
+- RN007: O total deve ser recalculado automaticamente.
+
+---
+
+## UC-LOJ-008 — Aplicar Cupom de Desconto
+
+### 🎯 Objetivo
+
+Permitir utilização de cupons promocionais.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Carrinho ativo.
+
+### ✅ Pós-condições
+
+- Cupom aplicado ou rejeitado.
+
+### 🔄 Fluxo Principal
+
+1. Cliente informa o cupom.
+2. Sistema valida regras.
+3. Sistema aplica desconto.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Cupom inválido
+
+1. Sistema informa motivo da rejeição.
+
+### 📜 Regras de Negócio
+
+- RN008: Toda validação deve ocorrer no backend.
+
+---
+
+## UC-LOJ-009 — Calcular Frete
+
+### 🎯 Objetivo
+
+Calcular opções de entrega.
+
+### 👥 Atores
+
+- Cliente
+- Sistema Logístico
+
+### 📋 Pré-condições
+
+- CEP informado.
+
+### ✅ Pós-condições
+
+- Opções de frete exibidas.
+
+### 🔄 Fluxo Principal
+
+1. Cliente informa CEP.
+2. Sistema consulta integração.
+3. Exibe modalidades.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. CEP inválido
+
+1. Sistema informa erro.
+
+### 📜 Regras de Negócio
+
+- RN009: O valor definitivo deve ser confirmado no checkout.
+
+---
+
+## UC-LOJ-010 — Finalizar Compra
+
+### 🎯 Objetivo
+
+Criar um pedido válido.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Carrinho válido.
+
+### ✅ Pós-condições
+
+- Pedido criado.
+
+### 🔄 Fluxo Principal
+
+1. Cliente confirma dados.
+2. Sistema valida estoque.
+3. Sistema valida preços.
+4. Sistema cria pedido.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Alteração de estoque
+
+1. Sistema interrompe operação.
+2. Solicita revisão do carrinho.
+
+### 📜 Regras de Negócio
+
+- RN010: Pedido não pode ser criado com dados inconsistentes.
+
+---
+
+## UC-LOJ-011 — Realizar Pagamento
+
+### 🎯 Objetivo
+
+Processar pagamento do pedido.
+
+### 👥 Atores
+
+- Cliente
+- Gateway de Pagamento
+
+### 📋 Pré-condições
+
+- Pedido criado.
+
+### ✅ Pós-condições
+
+- Pagamento aprovado ou recusado.
+
+### 🔄 Fluxo Principal
+
+1. Cliente seleciona método.
+2. Sistema envia solicitação ao gateway.
+3. Recebe resposta.
+4. Atualiza pedido.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Pagamento recusado
+
+1. Sistema informa falha.
+2. Permite nova tentativa.
+
+### 📜 Regras de Negócio
+
+- RN011: O sistema deve suportar confirmação assíncrona.
+
+---
+
+## UC-LOJ-012 — Acompanhar Pedido
+
+### 🎯 Objetivo
+
+Permitir consulta do andamento do pedido.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Pedido existente.
+
+### ✅ Pós-condições
+
+- Status atualizado exibido.
+
+### 🔄 Fluxo Principal
+
+1. Cliente acessa área de pedidos.
+2. Sistema apresenta histórico e status.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Pedido inexistente
+
+1. Sistema informa erro.
+
+### 📜 Regras de Negócio
+
+- RN012: Cliente só pode visualizar seus próprios pedidos.
+
+---
+
+## UC-LOJ-013 — Cancelar Pedido
+
+### 🎯 Objetivo
+
+Solicitar cancelamento do pedido.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Pedido elegível para cancelamento.
+
+### ✅ Pós-condições
+
+- Solicitação registrada.
+
+### 🔄 Fluxo Principal
+
+1. Cliente solicita cancelamento.
+2. Sistema verifica elegibilidade.
+3. Registra solicitação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Pedido já enviado
+
+1. Sistema impede cancelamento.
+
+### 📜 Regras de Negócio
+
+- RN013: A política da loja define os estágios permitidos.
+
+---
+
+## UC-LOJ-014 — Solicitar Devolução
+
+### 🎯 Objetivo
+
+Registrar pedido de devolução.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Pedido entregue.
+
+### ✅ Pós-condições
+
+- Solicitação registrada.
+
+### 🔄 Fluxo Principal
+
+1. Cliente informa motivo.
+2. Sistema registra solicitação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Prazo expirado
+
+1. Sistema rejeita solicitação.
+
+### 📜 Regras de Negócio
+
+- RN014: O prazo segue a política da loja.
+
+---
+
+## UC-LOJ-015 — Solicitar Troca
+
+### 🎯 Objetivo
+
+Registrar solicitação de troca.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Pedido elegível.
+
+### ✅ Pós-condições
+
+- Solicitação criada.
+
+### 🔄 Fluxo Principal
+
+1. Cliente solicita troca.
+2. Sistema registra solicitação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Produto inelegível
+
+1. Sistema informa impossibilidade.
+
+### 📜 Regras de Negócio
+
+- RN015: A política comercial define os critérios.
+
+---
+
+## UC-LOJ-016 — Adicionar Produto aos Favoritos
+
+### 🎯 Objetivo
+
+Permitir salvar produtos para consulta futura.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Cliente autenticado.
+
+### ✅ Pós-condições
+
+- Produto incluído na lista.
+
+### 🔄 Fluxo Principal
+
+1. Cliente seleciona "Favoritar".
+2. Sistema registra associação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Produto já favoritado
+
+1. Sistema apenas confirma operação.
+
+### 📜 Regras de Negócio
+
+- RN016: Favoritos pertencem exclusivamente ao cliente.
+
+---
+
+## UC-LOJ-017 — Avaliar Produto
+
+### 🎯 Objetivo
+
+Permitir avaliação de produtos adquiridos.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Produto adquirido pelo cliente.
+
+### ✅ Pós-condições
+
+- Avaliação registrada.
+
+### 🔄 Fluxo Principal
+
+1. Cliente acessa pedido.
+2. Seleciona produto.
+3. Informa nota e comentário.
+4. Sistema registra avaliação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Cliente não comprou o produto
+
+1. Sistema impede a avaliação.
+
+### 📜 Regras de Negócio
+
+- RN017: A plataforma pode restringir avaliações a compradores verificados.
 
 ---
 
 # 👤 Usuários
 
-## UC-USR-001 — Criar conta
+---
 
-**Ator:** Cliente
+## UC-USR-001 — Criar Conta
 
-## UC-USR-002 — Autenticar usuário
+### 🎯 Objetivo
 
-**Ator:** Cliente
+Permitir que um visitante realize seu cadastro na plataforma e passe a utilizar os recursos disponíveis para clientes autenticados.
 
-## UC-USR-003 — Recuperar senha
+### 👥 Atores
 
-**Ator:** Cliente
+- Cliente
 
-## UC-USR-004 — Gerenciar perfil
+### 📋 Pré-condições
 
-**Ator:** Cliente
+- O visitante ainda não possui uma conta cadastrada.
+- O e-mail informado não está em uso.
 
-## UC-USR-005 — Gerenciar endereços
+### ✅ Pós-condições
 
-**Ator:** Cliente
+- Uma nova conta é criada com sucesso.
+- O cliente pode autenticar-se na plataforma.
+
+### 🔄 Fluxo Principal
+
+1. O visitante acessa a página de cadastro.
+2. Informa seus dados pessoais.
+3. Define uma senha.
+4. O sistema valida os dados.
+5. O sistema cria a conta.
+6. O sistema confirma o cadastro.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. E-mail já cadastrado
+
+1. O sistema identifica duplicidade.
+2. Exibe mensagem informando que já existe uma conta vinculada ao e-mail.
+
+#### A2. Dados inválidos
+
+1. O sistema identifica inconsistências.
+2. Solicita a correção dos campos.
+
+### 📜 Regras de Negócio
+
+- RN001: O e-mail deve ser único.
+- RN002: A senha deve atender aos requisitos mínimos de segurança.
+- RN003: Dados obrigatórios devem ser informados.
+
+---
+
+## UC-USR-002 — Autenticar Usuário
+
+### 🎯 Objetivo
+
+Permitir que um cliente acesse sua conta.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- O cliente possui cadastro ativo.
+
+### ✅ Pós-condições
+
+- Sessão autenticada.
+- Permissões carregadas conforme o perfil.
+
+### 🔄 Fluxo Principal
+
+1. O cliente acessa a tela de login.
+2. Informa credenciais.
+3. O sistema valida os dados.
+4. O sistema cria a sessão autenticada.
+5. O cliente é redirecionado para sua área.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Credenciais inválidas
+
+1. O sistema rejeita a autenticação.
+2. Exibe mensagem de erro.
+
+#### A2. Conta bloqueada
+
+1. O sistema impede o acesso.
+2. Informa indisponibilidade da conta.
+
+### 📜 Regras de Negócio
+
+- RN004: A autenticação deve ocorrer de forma segura.
+- RN005: Sessões devem respeitar políticas de expiração.
+
+---
+
+## UC-USR-003 — Recuperar Senha
+
+### 🎯 Objetivo
+
+Permitir que o cliente redefina sua senha.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Conta cadastrada.
+
+### ✅ Pós-condições
+
+- Nova senha definida.
+
+### 🔄 Fluxo Principal
+
+1. O cliente solicita recuperação.
+2. Informa o e-mail.
+3. O sistema gera um token temporário.
+4. O cliente redefine a senha.
+5. O sistema confirma a alteração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Token expirado
+
+1. O sistema invalida a operação.
+2. Solicita novo processo.
+
+#### A2. E-mail inexistente
+
+1. O sistema informa impossibilidade de localização.
+
+### 📜 Regras de Negócio
+
+- RN006: Tokens devem possuir validade limitada.
+- RN007: Cada token deve ser utilizado apenas uma vez.
+
+---
+
+## UC-USR-004 — Gerenciar Perfil
+
+### 🎯 Objetivo
+
+Permitir que o cliente mantenha seus dados pessoais atualizados.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Cliente autenticado.
+
+### ✅ Pós-condições
+
+- Informações atualizadas.
+
+### 🔄 Fluxo Principal
+
+1. O cliente acessa seu perfil.
+2. Edita os dados permitidos.
+3. O sistema valida as alterações.
+4. O sistema salva as informações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados inválidos
+
+1. O sistema identifica inconsistências.
+2. Solicita correção.
+
+### 📜 Regras de Negócio
+
+- RN008: Apenas o próprio cliente pode alterar seus dados.
+- RN009: Alterações devem ser registradas para auditoria quando aplicável.
+
+---
+
+## UC-USR-005 — Gerenciar Endereços
+
+### 🎯 Objetivo
+
+Permitir que o cliente mantenha seus endereços de entrega e cobrança.
+
+### 👥 Atores
+
+- Cliente
+
+### 📋 Pré-condições
+
+- Cliente autenticado.
+
+### ✅ Pós-condições
+
+- Endereços cadastrados ou atualizados.
+
+### 🔄 Fluxo Principal
+
+1. O cliente acessa a área de endereços.
+2. Cadastra, altera ou remove um endereço.
+3. O sistema valida os dados.
+4. O sistema persiste as alterações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. CEP inválido
+
+1. O sistema identifica inconsistência.
+2. Solicita correção.
+
+### 📜 Regras de Negócio
+
+- RN010: Um cliente pode possuir múltiplos endereços.
+- RN011: Deve existir apenas um endereço padrão por tipo.
 
 ---
 
 # 🔐 Controle de Acesso (RBAC)
 
-## UC-RBAC-001 — Gerenciar usuários
+---
 
-**Ator:** Administrador
+## UC-RBAC-001 — Gerenciar Usuários
 
-## UC-RBAC-002 — Gerenciar papéis
+### 🎯 Objetivo
 
-**Ator:** Administrador
+Permitir que administradores realizem a gestão dos usuários da plataforma.
 
-## UC-RBAC-003 — Gerenciar permissões
+### 👥 Atores
 
-**Ator:** Administrador
+- Administrador
 
-## UC-RBAC-004 — Controlar acesso às funcionalidades
+### 📋 Pré-condições
 
-**Ator:** Sistema
+- Administrador autenticado.
+- Permissão concedida.
+
+### ✅ Pós-condições
+
+- Usuário criado, atualizado, bloqueado ou desbloqueado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o painel.
+2. Seleciona um usuário.
+3. Executa a ação desejada.
+4. O sistema registra a alteração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Usuário inexistente
+
+1. O sistema informa erro.
+
+### 📜 Regras de Negócio
+
+- RN012: Toda alteração deve ser auditada.
+
+---
+
+## UC-RBAC-002 — Gerenciar Papéis
+
+### 🎯 Objetivo
+
+Permitir o cadastro e manutenção dos papéis utilizados pelo sistema.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Papel criado ou atualizado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa a gestão de papéis.
+2. Cria ou altera um papel.
+3. O sistema valida as informações.
+4. O sistema salva o registro.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Papel já existente
+
+1. O sistema impede duplicidade.
+
+### 📜 Regras de Negócio
+
+- RN013: O papel Administrador não pode ser removido.
+
+---
+
+## UC-RBAC-003 — Gerenciar Permissões
+
+### 🎯 Objetivo
+
+Permitir a associação de permissões aos papéis existentes.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Papel previamente cadastrado.
+
+### ✅ Pós-condições
+
+- Permissões atualizadas.
+
+### 🔄 Fluxo Principal
+
+1. O administrador seleciona um papel.
+2. Define as permissões desejadas.
+3. O sistema salva as alterações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Permissão inválida
+
+1. O sistema rejeita a operação.
+
+### 📜 Regras de Negócio
+
+- RN014: Toda alteração deve ser registrada em auditoria.
+
+---
+
+## UC-RBAC-004 — Controlar Acesso às Funcionalidades
+
+### 🎯 Objetivo
+
+Garantir que cada usuário acesse apenas os recursos autorizados.
+
+### 👥 Atores
+
+- Sistema
+
+### 📋 Pré-condições
+
+- Usuário autenticado.
+
+### ✅ Pós-condições
+
+- Acesso concedido ou negado.
+
+### 🔄 Fluxo Principal
+
+1. O usuário solicita acesso a uma funcionalidade.
+2. O sistema identifica seu papel.
+3. O sistema verifica as permissões.
+4. O sistema concede ou bloqueia o acesso.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Permissão inexistente
+
+1. O sistema nega o acesso.
+2. Registra o evento de segurança.
+
+### 📜 Regras de Negócio
+
+- RN015: O princípio do menor privilégio deve ser aplicado.
+- RN016: Na ausência de permissão explícita, o acesso deve ser negado.
+- RN017: A validação deve ocorrer no backend.
 
 ---
 
 # 📦 Produtos
 
-## UC-PRO-001 — Cadastrar produto
+---
 
-**Ator:** Administrador
+## UC-PRO-001 — Cadastrar Produto
 
-## UC-PRO-002 — Editar produto
+### 🎯 Objetivo
 
-**Ator:** Administrador
+Permitir que um administrador cadastre um novo produto para disponibilização na loja virtual.
 
-## UC-PRO-003 — Inativar produto
+### 👥 Atores
 
-**Ator:** Administrador
+- Administrador
 
-## UC-PRO-004 — Importar produtos
+### 📋 Pré-condições
 
-**Ator:** Administrador
+- Administrador autenticado.
+- Usuário possui permissão para gerenciamento de produtos.
 
-## UC-PRO-005 — Exportar produtos
+### ✅ Pós-condições
 
-**Ator:** Administrador
+- Produto cadastrado no sistema.
+- Produto salvo como rascunho ou ativo, conforme configuração.
 
-## UC-PRO-006 — Gerenciar categorias
+### 🔄 Fluxo Principal
 
-**Ator:** Administrador
+1. O administrador acessa o módulo de produtos.
+2. Seleciona a opção **Cadastrar Produto**.
+3. Informa os dados obrigatórios.
+4. O sistema valida as informações.
+5. O sistema registra o produto.
+6. O sistema confirma a operação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados obrigatórios ausentes
+
+1. O sistema identifica inconsistências.
+2. Exibe mensagens de validação.
+3. Solicita correção.
+
+#### A2. SKU já existente
+
+1. O sistema detecta duplicidade.
+2. Impede o cadastro.
+
+### 📜 Regras de Negócio
+
+- RN001: Todo produto deve possuir identificação única.
+- RN002: O SKU deve ser único quando utilizado.
+- RN003: Produtos ativos devem possuir todas as informações obrigatórias.
+
+---
+
+## UC-PRO-002 — Editar Produto
+
+### 🎯 Objetivo
+
+Permitir a atualização das informações de um produto existente.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Produto previamente cadastrado.
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Informações do produto atualizadas.
+
+### 🔄 Fluxo Principal
+
+1. O administrador localiza o produto.
+2. Seleciona a opção de edição.
+3. Atualiza os dados desejados.
+4. O sistema valida as alterações.
+5. O sistema salva as modificações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Produto inexistente
+
+1. O sistema informa que o produto não foi encontrado.
+
+#### A2. Dados inválidos
+
+1. O sistema impede a atualização.
+2. Solicita correção.
+
+### 📜 Regras de Negócio
+
+- RN004: Alterações não devem modificar informações históricas de pedidos já realizados.
+- RN005: Alterações devem ser registradas em auditoria.
+
+---
+
+## UC-PRO-003 — Inativar Produto
+
+### 🎯 Objetivo
+
+Permitir que um produto deixe de ser comercializado sem perder seu histórico.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Produto cadastrado.
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Produto marcado como inativo.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o cadastro do produto.
+2. Seleciona a opção **Inativar**.
+3. O sistema altera o status do produto.
+4. O sistema confirma a operação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Produto já inativo
+
+1. O sistema informa que nenhuma alteração é necessária.
+
+### 📜 Regras de Negócio
+
+- RN006: Produtos vinculados a pedidos não podem ser excluídos fisicamente.
+- RN007: Produtos inativos não devem ser exibidos na loja.
+
+---
+
+## UC-PRO-004 — Importar Produtos
+
+### 🎯 Objetivo
+
+Permitir o cadastro em massa de produtos utilizando arquivos externos.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+- Arquivo compatível disponível.
+
+### ✅ Pós-condições
+
+- Produtos válidos importados para o sistema.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa a funcionalidade de importação.
+2. Seleciona o arquivo.
+3. O sistema valida o formato.
+4. O sistema processa os registros.
+5. O sistema apresenta o resultado da importação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Arquivo inválido
+
+1. O sistema interrompe o processamento.
+2. Exibe mensagem de erro.
+
+#### A2. Registros inconsistentes
+
+1. O sistema ignora registros inválidos.
+2. Gera relatório de inconsistências.
+
+### 📜 Regras de Negócio
+
+- RN008: Apenas registros válidos podem ser importados.
+- RN009: O processo deve registrar logs de execução.
+
+---
+
+## UC-PRO-005 — Exportar Produtos
+
+### 🎯 Objetivo
+
+Permitir a exportação das informações dos produtos cadastrados.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+- Existirem produtos cadastrados.
+
+### ✅ Pós-condições
+
+- Arquivo gerado para download.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de exportação.
+2. Define os filtros desejados.
+3. Solicita a exportação.
+4. O sistema gera o arquivo.
+5. Disponibiliza o download.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nenhum produto encontrado
+
+1. O sistema informa que não existem registros para exportação.
+
+### 📜 Regras de Negócio
+
+- RN010: O formato do arquivo deve seguir o padrão definido pela plataforma.
+- RN011: Apenas usuários autorizados podem exportar informações.
+
+---
+
+## UC-PRO-006 — Gerenciar Categorias
+
+### 🎯 Objetivo
+
+Permitir o cadastro, atualização, organização e inativação das categorias utilizadas pelos produtos.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Categoria criada, alterada ou inativada.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de categorias.
+2. Seleciona a operação desejada.
+3. Informa os dados necessários.
+4. O sistema valida as informações.
+5. O sistema salva as alterações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nome de categoria duplicado
+
+1. O sistema informa conflito.
+2. Solicita novo nome.
+
+#### A2. Categoria vinculada a produtos
+
+1. O administrador solicita exclusão.
+2. O sistema impede a exclusão física.
+3. Sugere a inativação.
+
+### 📜 Regras de Negócio
+
+- RN012: Categorias vinculadas a produtos não podem ser removidas fisicamente.
+- RN013: O sistema deve permitir estrutura hierárquica de categorias.
+- RN014: Apenas categorias ativas podem ser utilizadas em novos produtos.
 
 ---
 
 # 📊 Estoque
 
-## UC-EST-001 — Controlar estoque
+---
 
-**Ator:** Operador de Estoque
+## UC-EST-001 — Controlar Estoque
 
-## UC-EST-002 — Registrar entrada de estoque
+### 🎯 Objetivo
 
-**Ator:** Operador de Estoque
+Permitir o gerenciamento e acompanhamento da quantidade disponível de produtos e variantes no estoque.
 
-## UC-EST-003 — Registrar saída de estoque
+### 👥 Atores
 
-**Ator:** Operador de Estoque
+- Operador de Estoque
 
-## UC-EST-004 — Ajustar estoque
+### 📋 Pré-condições
 
-**Ator:** Operador de Estoque
+- Usuário autenticado.
+- Permissão para gerenciamento de estoque.
+- Produto previamente cadastrado.
 
-## UC-EST-005 — Realizar inventário
+### ✅ Pós-condições
 
-**Ator:** Operador de Estoque
+- Informações de estoque atualizadas ou consultadas.
 
-## UC-EST-006 — Reservar estoque
+### 🔄 Fluxo Principal
 
-**Ator:** Sistema
+1. O operador acessa o módulo de estoque.
+2. O sistema apresenta a listagem dos produtos e suas quantidades.
+3. O operador consulta ou realiza operações de gerenciamento.
+4. O sistema atualiza as informações quando necessário.
 
-## UC-EST-007 — Liberar reserva de estoque
+### 🔀 Fluxos Alternativos
 
-**Ator:** Sistema
+#### A1. Produto inexistente
+
+1. O sistema informa que o produto não foi localizado.
+
+#### A2. Usuário sem permissão
+
+1. O sistema bloqueia o acesso.
+2. Registra a tentativa de acesso.
+
+### 📜 Regras de Negócio
+
+- RN001: Apenas usuários autorizados podem gerenciar estoque.
+- RN002: O estoque deve refletir a situação operacional atual da loja.
+
+---
+
+## UC-EST-002 — Registrar Entrada de Estoque
+
+### 🎯 Objetivo
+
+Permitir o registro de novas unidades de produtos no estoque.
+
+### 👥 Atores
+
+- Operador de Estoque
+
+### 📋 Pré-condições
+
+- Produto cadastrado.
+- Usuário autenticado.
+
+### ✅ Pós-condições
+
+- Quantidade disponível atualizada.
+- Movimentação registrada.
+
+### 🔄 Fluxo Principal
+
+1. O operador seleciona o produto.
+2. Informa a quantidade recebida.
+3. Informa o motivo ou origem da entrada.
+4. O sistema valida os dados.
+5. O sistema atualiza o estoque.
+6. O sistema registra a movimentação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Quantidade inválida
+
+1. O sistema rejeita a operação.
+2. Solicita nova informação.
+
+### 📜 Regras de Negócio
+
+- RN003: Toda entrada deve gerar histórico de movimentação.
+- RN004: A operação deve registrar usuário, data e motivo.
+
+---
+
+## UC-EST-003 — Registrar Saída de Estoque
+
+### 🎯 Objetivo
+
+Permitir o registro manual de redução do estoque.
+
+### 👥 Atores
+
+- Operador de Estoque
+
+### 📋 Pré-condições
+
+- Produto cadastrado.
+- Estoque disponível.
+
+### ✅ Pós-condições
+
+- Estoque atualizado.
+- Movimentação registrada.
+
+### 🔄 Fluxo Principal
+
+1. O operador seleciona o produto.
+2. Informa a quantidade removida.
+3. Informa o motivo da saída.
+4. O sistema valida a disponibilidade.
+5. Atualiza o estoque.
+6. Registra a movimentação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Quantidade superior ao estoque
+
+1. O sistema bloqueia a operação.
+2. Exibe mensagem de erro.
+
+### 📜 Regras de Negócio
+
+- RN005: O estoque nunca pode assumir valor negativo.
+- RN006: Toda saída deve permanecer registrada para auditoria.
+
+---
+
+## UC-EST-004 — Ajustar Estoque
+
+### 🎯 Objetivo
+
+Permitir correções manuais na quantidade disponível de um produto.
+
+### 👥 Atores
+
+- Operador de Estoque
+
+### 📋 Pré-condições
+
+- Produto existente.
+- Usuário autorizado.
+
+### ✅ Pós-condições
+
+- Quantidade ajustada.
+- Histórico registrado.
+
+### 🔄 Fluxo Principal
+
+1. O operador seleciona o produto.
+2. Informa o novo valor ou diferença.
+3. Informa a justificativa.
+4. O sistema valida os dados.
+5. Atualiza o estoque.
+6. Registra a operação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Justificativa não informada
+
+1. O sistema impede a confirmação.
+2. Solicita preenchimento.
+
+### 📜 Regras de Negócio
+
+- RN007: Todo ajuste deve possuir justificativa obrigatória.
+- RN008: O histórico deve armazenar valor anterior e valor atualizado.
+
+---
+
+## UC-EST-005 — Realizar Inventário
+
+### 🎯 Objetivo
+
+Permitir a conferência física e reconciliação do estoque.
+
+### 👥 Atores
+
+- Operador de Estoque
+
+### 📋 Pré-condições
+
+- Inventário autorizado.
+- Produtos cadastrados.
+
+### ✅ Pós-condições
+
+- Divergências identificadas.
+- Estoque reconciliado quando aprovado.
+
+### 🔄 Fluxo Principal
+
+1. O operador inicia o inventário.
+2. Realiza a contagem física.
+3. Informa os valores encontrados.
+4. O sistema compara com o estoque registrado.
+5. Apresenta divergências.
+6. Após confirmação, aplica os ajustes.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Divergências identificadas
+
+1. O sistema apresenta relatório.
+2. O operador confirma ou cancela os ajustes.
+
+### 📜 Regras de Negócio
+
+- RN009: O inventário deve gerar registro histórico.
+- RN010: Alterações decorrentes do inventário devem ser auditáveis.
+
+---
+
+## UC-EST-006 — Reservar Estoque
+
+### 🎯 Objetivo
+
+Reservar temporariamente unidades de produtos durante o processo de compra.
+
+### 👥 Atores
+
+- Sistema
+
+### 📋 Pré-condições
+
+- Produto disponível.
+- Estratégia de reserva habilitada.
+
+### ✅ Pós-condições
+
+- Quantidade reservada para o pedido.
+
+### 🔄 Fluxo Principal
+
+1. O cliente inicia o checkout.
+2. O sistema identifica os itens.
+3. Reserva temporariamente o estoque.
+4. Mantém a reserva até a confirmação ou expiração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Estoque insuficiente
+
+1. O sistema impede a reserva.
+2. Informa indisponibilidade.
+
+#### A2. Tempo de reserva expirado
+
+1. O sistema libera automaticamente a reserva.
+
+### 📜 Regras de Negócio
+
+- RN011: A reserva deve respeitar o tempo máximo configurado.
+- RN012: A estratégia de reserva pode ser configurável por loja.
+
+---
+
+## UC-EST-007 — Liberar Reserva de Estoque
+
+### 🎯 Objetivo
+
+Liberar automaticamente ou manualmente o estoque reservado quando a compra não for concluída.
+
+### 👥 Atores
+
+- Sistema
+
+### 📋 Pré-condições
+
+- Existir reserva ativa.
+
+### ✅ Pós-condições
+
+- Quantidade retorna ao estoque disponível.
+
+### 🔄 Fluxo Principal
+
+1. O sistema identifica uma reserva expirada ou cancelada.
+2. Remove a reserva existente.
+3. Atualiza o estoque disponível.
+4. Registra a operação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Pedido confirmado
+
+1. O sistema converte a reserva em baixa definitiva.
+2. Não realiza liberação.
+
+### 📜 Regras de Negócio
+
+- RN013: Reservas expiradas devem ser liberadas automaticamente.
+- RN014: Toda liberação deve permanecer registrada para fins de auditoria.
 
 ---
 
 # 📋 Pedidos
 
-## UC-PED-001 — Gerenciar pedidos
+---
 
-**Ator:** Administrador
+## UC-PED-001 — Gerenciar Pedidos
 
-## UC-PED-002 — Atualizar status do pedido
+### 🎯 Objetivo
 
-**Ator:** Administrador
+Permitir que o administrador consulte, filtre e gerencie os pedidos realizados na plataforma.
 
-## UC-PED-003 — Aprovar pedido
+### 👥 Atores
 
-**Ator:** Administrador
+- Administrador
 
-## UC-PED-004 — Cancelar pedido administrativamente
+### 📋 Pré-condições
 
-**Ator:** Administrador
+- Administrador autenticado.
+- Permissão para gerenciamento de pedidos.
 
-## UC-PED-005 — Gerar etiqueta de envio
+### ✅ Pós-condições
 
-**Ator:** Sistema Logístico
+- Pedido consultado ou atualizado conforme a operação realizada.
 
-## UC-PED-006 — Gerar romaneio
+### 🔄 Fluxo Principal
 
-**Ator:** Sistema
+1. O administrador acessa o módulo de pedidos.
+2. O sistema apresenta a listagem de pedidos.
+3. O administrador utiliza filtros ou pesquisa.
+4. Seleciona um pedido.
+5. O sistema exibe todas as informações relacionadas.
 
-## UC-PED-007 — Registrar devolução
+### 🔀 Fluxos Alternativos
 
-**Ator:** Administrador
+#### A1. Nenhum pedido encontrado
+
+1. O sistema informa que não existem resultados para os filtros aplicados.
+
+#### A2. Usuário sem permissão
+
+1. O sistema bloqueia o acesso.
+
+### 📜 Regras de Negócio
+
+- RN001: Apenas usuários autorizados podem acessar pedidos.
+- RN002: Todo acesso administrativo pode ser registrado para auditoria.
+
+---
+
+## UC-PED-002 — Atualizar Status do Pedido
+
+### 🎯 Objetivo
+
+Permitir a alteração do status operacional de um pedido.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Pedido existente.
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Status atualizado.
+- Histórico registrado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o pedido.
+2. Seleciona um novo status.
+3. O sistema valida a transição.
+4. Atualiza o pedido.
+5. Registra o histórico.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Transição inválida
+
+1. O sistema impede a alteração.
+2. Exibe mensagem explicativa.
+
+### 📜 Regras de Negócio
+
+- RN003: O pedido deve seguir uma máquina de estados definida.
+- RN004: Toda alteração deve ser registrada para auditoria.
+
+---
+
+## UC-PED-003 — Aprovar Pedido
+
+### 🎯 Objetivo
+
+Permitir que um pedido seja aprovado para continuidade do fluxo operacional.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Pedido criado.
+- Requisitos mínimos atendidos.
+
+### ✅ Pós-condições
+
+- Pedido aprovado.
+- Fluxo operacional iniciado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o pedido.
+2. Verifica as informações.
+3. Aprova o pedido.
+4. O sistema altera o status.
+5. O sistema registra a operação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Pagamento pendente
+
+1. O sistema impede a aprovação.
+
+#### A2. Estoque indisponível
+
+1. O sistema informa inconsistência.
+2. Mantém o pedido pendente.
+
+### 📜 Regras de Negócio
+
+- RN005: Apenas pedidos válidos podem ser aprovados.
+- RN006: O estoque deve estar disponível antes da aprovação definitiva.
+
+---
+
+## UC-PED-004 — Cancelar Pedido Administrativamente
+
+### 🎯 Objetivo
+
+Permitir que um administrador realize o cancelamento de um pedido.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Pedido existente.
+- Cancelamento permitido pela política operacional.
+
+### ✅ Pós-condições
+
+- Pedido cancelado.
+- Histórico atualizado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o pedido.
+2. Seleciona a opção de cancelamento.
+3. Informa o motivo.
+4. O sistema valida a operação.
+5. Atualiza o status do pedido.
+6. Registra o cancelamento.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Pedido já entregue
+
+1. O sistema impede o cancelamento.
+
+#### A2. Pedido já cancelado
+
+1. O sistema informa que a operação não é necessária.
+
+### 📜 Regras de Negócio
+
+- RN007: Todo cancelamento deve possuir motivo registrado.
+- RN008: O cancelamento deve ser auditável.
+- RN009: Quando aplicável, a reserva de estoque deve ser liberada.
+
+---
+
+## UC-PED-005 — Gerar Etiqueta de Envio
+
+### 🎯 Objetivo
+
+Gerar a etiqueta necessária para expedição do pedido.
+
+### 👥 Atores
+
+- Sistema Logístico
+
+### 📋 Pré-condições
+
+- Pedido aprovado para envio.
+- Endereço válido.
+- Integração logística disponível.
+
+### ✅ Pós-condições
+
+- Etiqueta gerada e vinculada ao pedido.
+
+### 🔄 Fluxo Principal
+
+1. O sistema envia os dados para o serviço logístico.
+2. O serviço processa a solicitação.
+3. Retorna a etiqueta.
+4. O sistema associa a etiqueta ao pedido.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Falha na integração
+
+1. O sistema registra o erro.
+2. Permite nova tentativa posteriormente.
+
+### 📜 Regras de Negócio
+
+- RN010: Apenas pedidos aptos para envio podem gerar etiqueta.
+- RN011: O processo deve ser idempotente para evitar duplicidades.
+
+---
+
+## UC-PED-006 — Gerar Romaneio
+
+### 🎯 Objetivo
+
+Gerar o documento contendo os pedidos que serão separados ou expedidos.
+
+### 👥 Atores
+
+- Sistema
+
+### 📋 Pré-condições
+
+- Existirem pedidos elegíveis.
+
+### ✅ Pós-condições
+
+- Romaneio gerado.
+
+### 🔄 Fluxo Principal
+
+1. O sistema identifica pedidos aptos.
+2. Consolida as informações.
+3. Gera o romaneio.
+4. Disponibiliza o documento.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nenhum pedido disponível
+
+1. O sistema informa que não existem pedidos elegíveis.
+
+### 📜 Regras de Negócio
+
+- RN012: O romaneio deve refletir apenas pedidos autorizados para separação.
+- RN013: O documento deve possuir identificação única.
+
+---
+
+## UC-PED-007 — Registrar Devolução
+
+### 🎯 Objetivo
+
+Registrar uma devolução de produtos vinculada a um pedido.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Pedido existente.
+- Solicitação de devolução aprovada.
+
+### ✅ Pós-condições
+
+- Devolução registrada.
+- Pedido atualizado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o pedido.
+2. Seleciona a opção de devolução.
+3. Informa os itens devolvidos.
+4. Informa o motivo.
+5. O sistema registra a devolução.
+6. Atualiza os controles internos.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Pedido não elegível
+
+1. O sistema impede a operação.
+
+#### A2. Produto não pertence ao pedido
+
+1. O sistema rejeita a solicitação.
+
+### 📜 Regras de Negócio
+
+- RN014: Toda devolução deve possuir justificativa.
+- RN015: A devolução deve permanecer vinculada ao pedido original.
+- RN016: Quando aplicável, o estoque deve ser atualizado conforme a política da loja.
 
 ---
 
 # 🚀 Conversão
 
-## UC-CONV-001 — Capturar lead
+---
 
-**Ator:** Cliente
+## UC-CONV-001 — Capturar Lead
 
-## UC-CONV-002 — Gerenciar leads
+### 🎯 Objetivo
 
-**Ator:** Administrador
+Permitir que visitantes forneçam seus dados de contato para futuras ações comerciais ou de relacionamento.
 
-## UC-CONV-003 — Converter lead em pedido
+### 👥 Atores
 
-**Ator:** Administrador
+- Cliente
 
-## UC-CONV-004 — Recuperar carrinho abandonado
+### 📋 Pré-condições
 
-**Ator:** Sistema
+- A funcionalidade de captura de leads está habilitada.
+- O formulário está disponível.
 
-## UC-CONV-005 — Exibir produtos relacionados
+### ✅ Pós-condições
 
-**Ator:** Sistema
+- Lead registrado na plataforma.
 
-## UC-CONV-006 — Exibir produtos em destaque
+### 🔄 Fluxo Principal
 
-**Ator:** Sistema
+1. O visitante acessa um formulário de captura.
+2. Informa seus dados de contato.
+3. O sistema valida as informações.
+4. O sistema registra o lead.
+5. Exibe mensagem de confirmação.
 
-## UC-CONV-007 — Gerenciar banners promocionais
+### 🔀 Fluxos Alternativos
 
-**Ator:** Administrador
+#### A1. Dados obrigatórios não informados
 
-## UC-CONV-008 — Gerenciar campanhas promocionais
+1. O sistema identifica inconsistências.
+2. Solicita correção.
 
-**Ator:** Administrador
+#### A2. Lead já existente
 
-## UC-CONV-009 — Gerenciar cupons
+1. O sistema identifica duplicidade.
+2. Atualiza ou mantém o registro conforme configuração.
 
-**Ator:** Administrador
+### 📜 Regras de Negócio
+
+- RN001: O lead deve possuir pelo menos um meio válido de contato.
+- RN002: A captura deve respeitar as regras de privacidade e consentimento aplicáveis.
+
+---
+
+## UC-CONV-002 — Gerenciar Leads
+
+### 🎯 Objetivo
+
+Permitir que administradores consultem e acompanhem os leads cadastrados.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+- Permissão para gerenciamento de leads.
+
+### ✅ Pós-condições
+
+- Lead consultado ou atualizado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de leads.
+2. O sistema apresenta a listagem.
+3. O administrador consulta ou atualiza informações.
+4. O sistema salva as alterações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Lead inexistente
+
+1. O sistema informa que o registro não foi localizado.
+
+### 📜 Regras de Negócio
+
+- RN003: Alterações devem ser registradas para auditoria.
+- RN004: O histórico de interações deve ser preservado.
+
+---
+
+## UC-CONV-003 — Converter Lead em Pedido
+
+### 🎯 Objetivo
+
+Permitir que um lead seja convertido em cliente e origine um pedido.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Lead cadastrado.
+- Dados mínimos disponíveis para conversão.
+
+### ✅ Pós-condições
+
+- Cliente criado ou atualizado.
+- Pedido iniciado ou associado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador seleciona um lead.
+2. Solicita sua conversão.
+3. O sistema cria ou vincula o cadastro do cliente.
+4. O sistema inicia o fluxo de compra ou cria o pedido.
+5. Atualiza o status do lead.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados insuficientes
+
+1. O sistema impede a conversão.
+2. Solicita complementação das informações.
+
+### 📜 Regras de Negócio
+
+- RN005: O histórico do lead deve ser preservado após a conversão.
+- RN006: Um lead convertido não deve gerar duplicidade de clientes.
+
+---
+
+## UC-CONV-004 — Recuperar Carrinho Abandonado
+
+### 🎯 Objetivo
+
+Permitir que o sistema identifique carrinhos abandonados e execute ações automáticas de recuperação.
+
+### 👥 Atores
+
+- Sistema
+
+### 📋 Pré-condições
+
+- Existência de carrinho abandonado.
+- Cliente identificado.
+
+### ✅ Pós-condições
+
+- Ação de recuperação registrada ou executada.
+
+### 🔄 Fluxo Principal
+
+1. O sistema identifica um carrinho abandonado.
+2. Verifica os critérios definidos.
+3. Dispara comunicação automática ou registra ação.
+4. Monitora eventual retorno do cliente.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Cliente sem meio de contato
+
+1. O sistema registra impossibilidade de recuperação.
+
+### 📜 Regras de Negócio
+
+- RN007: O prazo para caracterização de abandono deve ser configurável.
+- RN008: A comunicação deve respeitar preferências e políticas de privacidade.
+
+---
+
+## UC-CONV-005 — Exibir Produtos Relacionados
+
+### 🎯 Objetivo
+
+Apresentar sugestões de produtos relacionados durante a navegação.
+
+### 👥 Atores
+
+- Sistema
+
+### 📋 Pré-condições
+
+- Produto sendo visualizado.
+
+### ✅ Pós-condições
+
+- Lista de produtos relacionados exibida.
+
+### 🔄 Fluxo Principal
+
+1. O cliente acessa um produto.
+2. O sistema identifica relações configuradas.
+3. Exibe sugestões na interface.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nenhuma relação cadastrada
+
+1. O sistema apresenta produtos alternativos ou não exibe recomendações.
+
+### 📜 Regras de Negócio
+
+- RN009: Apenas produtos ativos podem ser recomendados.
+- RN010: Produtos sem estoque podem ser ocultados conforme configuração.
+
+---
+
+## UC-CONV-006 — Exibir Produtos em Destaque
+
+### 🎯 Objetivo
+
+Apresentar produtos destacados em áreas estratégicas da loja.
+
+### 👥 Atores
+
+- Sistema
+
+### 📋 Pré-condições
+
+- Existirem produtos marcados como destaque.
+
+### ✅ Pós-condições
+
+- Produtos destacados exibidos.
+
+### 🔄 Fluxo Principal
+
+1. O cliente acessa uma página da loja.
+2. O sistema identifica produtos em destaque.
+3. Exibe os itens conforme configuração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nenhum produto configurado
+
+1. O sistema exibe outros produtos ou mantém a área vazia.
+
+### 📜 Regras de Negócio
+
+- RN011: Apenas produtos ativos podem ser destacados.
+
+---
+
+## UC-CONV-007 — Gerenciar Banners Promocionais
+
+### 🎯 Objetivo
+
+Permitir a criação e manutenção dos banners promocionais exibidos na loja.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Banner criado, atualizado ou inativado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de banners.
+2. Cadastra ou edita um banner.
+3. O sistema valida as informações.
+4. Salva a configuração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados inválidos
+
+1. O sistema impede o salvamento.
+2. Solicita correção.
+
+### 📜 Regras de Negócio
+
+- RN012: Apenas banners ativos devem ser exibidos.
+- RN013: Períodos de vigência devem ser respeitados.
+
+---
+
+## UC-CONV-008 — Gerenciar Campanhas Promocionais
+
+### 🎯 Objetivo
+
+Permitir o gerenciamento de campanhas promocionais da plataforma.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Campanha criada ou atualizada.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de campanhas.
+2. Define regras e período de vigência.
+3. O sistema valida os dados.
+4. Registra a campanha.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Período inválido
+
+1. O sistema impede o cadastro.
+
+### 📜 Regras de Negócio
+
+- RN014: Campanhas não podem possuir regras conflitantes.
+- RN015: A vigência deve ser respeitada automaticamente.
+
+---
+
+## UC-CONV-009 — Gerenciar Cupons
+
+### 🎯 Objetivo
+
+Permitir a criação e manutenção de cupons promocionais.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Cupom criado, atualizado ou desativado.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de cupons.
+2. Define código, regras e validade.
+3. O sistema valida as informações.
+4. Salva o cupom.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Código duplicado
+
+1. O sistema impede o cadastro.
+2. Solicita um novo código.
+
+#### A2. Configuração inválida
+
+1. O sistema informa inconsistências.
+2. Solicita ajustes.
+
+### 📜 Regras de Negócio
+
+- RN016: Cada cupom deve possuir identificador único.
+- RN017: O sistema deve validar automaticamente vigência, limite de uso e critérios de elegibilidade.
+- RN018: Cupons expirados ou inativos não podem ser aplicados em pedidos.
 
 ---
 
 # 💰 Financeiro
 
-## UC-FIN-001 — Validar pagamento
+---
 
-**Ator:** Gateway de Pagamento
+## UC-FIN-001 — Validar Pagamento
 
-## UC-FIN-002 — Conciliar pagamentos
+### 🎯 Objetivo
 
-**Ator:** Operador Financeiro
+Permitir que o sistema valide o resultado de uma transação financeira realizada por meio de um gateway de pagamento.
 
-## UC-FIN-003 — Gerenciar contas a receber
+### 👥 Atores
 
-**Ator:** Operador Financeiro
+- Gateway de Pagamento
 
-## UC-FIN-004 — Gerenciar contas a pagar
+### 📋 Pré-condições
 
-**Ator:** Operador Financeiro
+- Pedido criado.
+- Pagamento iniciado.
+- Integração com gateway disponível.
 
-## UC-FIN-005 — Gerenciar fluxo de caixa
+### ✅ Pós-condições
 
-**Ator:** Operador Financeiro
+- Status do pagamento atualizado.
+- Pedido sincronizado com o resultado da transação.
 
-## UC-FIN-006 — Processar estornos
+### 🔄 Fluxo Principal
 
-**Ator:** Operador Financeiro
+1. O cliente inicia o pagamento.
+2. O sistema envia a solicitação ao gateway.
+3. O gateway processa a transação.
+4. O gateway retorna o resultado.
+5. O sistema atualiza o status do pagamento.
+6. O sistema atualiza o status do pedido.
 
-## UC-FIN-007 — Gerenciar centro de custos
+### 🔀 Fluxos Alternativos
 
-**Ator:** Operador Financeiro
+#### A1. Pagamento recusado
+
+1. O gateway retorna falha.
+2. O sistema registra a recusa.
+3. O pedido permanece aguardando novo pagamento.
+
+#### A2. Erro de comunicação
+
+1. O sistema registra a inconsistência.
+2. Agenda nova tentativa de sincronização.
+
+### 📜 Regras de Negócio
+
+- RN001: O sistema deve suportar confirmações assíncronas (webhooks).
+- RN002: O status financeiro deve refletir exatamente o retorno do gateway.
+- RN003: Toda transação deve ser registrada para auditoria.
+
+---
+
+## UC-FIN-002 — Conciliar Pagamentos
+
+### 🎯 Objetivo
+
+Permitir a conciliação entre os pagamentos registrados na plataforma e os valores efetivamente recebidos pelos meios de pagamento.
+
+### 👥 Atores
+
+- Operador Financeiro
+
+### 📋 Pré-condições
+
+- Existirem transações financeiras registradas.
+
+### ✅ Pós-condições
+
+- Pagamentos conciliados.
+- Divergências identificadas.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa o módulo financeiro.
+2. Solicita a conciliação.
+3. O sistema compara os registros internos com os retornos do gateway.
+4. Exibe os resultados.
+5. O operador confirma ou analisa divergências.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Divergência encontrada
+
+1. O sistema registra a inconsistência.
+2. Mantém a transação pendente para análise.
+
+### 📜 Regras de Negócio
+
+- RN004: Nenhuma conciliação deve alterar automaticamente valores financeiros sem validação quando exigido.
+- RN005: Todas as divergências devem permanecer registradas.
+
+---
+
+## UC-FIN-003 — Gerenciar Contas a Receber
+
+### 🎯 Objetivo
+
+Permitir o gerenciamento dos valores que a empresa possui a receber.
+
+### 👥 Atores
+
+- Operador Financeiro
+
+### 📋 Pré-condições
+
+- Usuário autenticado.
+- Permissão para gestão financeira.
+
+### ✅ Pós-condições
+
+- Contas registradas ou atualizadas.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa contas a receber.
+2. Consulta ou cadastra registros.
+3. Atualiza informações quando necessário.
+4. O sistema salva as alterações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Registro inexistente
+
+1. O sistema informa que a conta não foi localizada.
+
+### 📜 Regras de Negócio
+
+- RN006: Toda conta deve possuir situação financeira definida.
+- RN007: Baixas devem permanecer registradas para auditoria.
+
+---
+
+## UC-FIN-004 — Gerenciar Contas a Pagar
+
+### 🎯 Objetivo
+
+Permitir o gerenciamento das obrigações financeiras da empresa.
+
+### 👥 Atores
+
+- Operador Financeiro
+
+### 📋 Pré-condições
+
+- Usuário autenticado.
+
+### ✅ Pós-condições
+
+- Contas atualizadas.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa o módulo de contas a pagar.
+2. Consulta ou registra uma obrigação financeira.
+3. Atualiza informações necessárias.
+4. O sistema salva os dados.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados inválidos
+
+1. O sistema impede o salvamento.
+2. Solicita correção.
+
+### 📜 Regras de Negócio
+
+- RN008: Cada lançamento deve possuir categoria financeira.
+- RN009: Pagamentos realizados devem permanecer registrados.
+
+---
+
+## UC-FIN-005 — Gerenciar Fluxo de Caixa
+
+### 🎯 Objetivo
+
+Permitir o acompanhamento das entradas, saídas e saldo financeiro da operação.
+
+### 👥 Atores
+
+- Operador Financeiro
+
+### 📋 Pré-condições
+
+- Existirem movimentações financeiras cadastradas.
+
+### ✅ Pós-condições
+
+- Fluxo de caixa atualizado.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa o fluxo de caixa.
+2. O sistema consolida entradas e saídas.
+3. Exibe saldo e projeções.
+4. O operador realiza consultas ou filtros.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Não existirem movimentações
+
+1. O sistema informa ausência de dados.
+
+### 📜 Regras de Negócio
+
+- RN010: O fluxo deve considerar apenas movimentações válidas.
+- RN011: Projeções devem utilizar informações financeiras futuras cadastradas.
+
+---
+
+## UC-FIN-006 — Processar Estornos
+
+### 🎯 Objetivo
+
+Permitir o processamento de estornos financeiros relacionados a pagamentos.
+
+### 👥 Atores
+
+- Operador Financeiro
+
+### 📋 Pré-condições
+
+- Pagamento elegível para estorno.
+
+### ✅ Pós-condições
+
+- Estorno registrado.
+- Situação financeira atualizada.
+
+### 🔄 Fluxo Principal
+
+1. O operador seleciona uma transação.
+2. Solicita o estorno.
+3. O sistema envia a solicitação ao gateway.
+4. Recebe o retorno.
+5. Atualiza os registros financeiros.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Gateway rejeita o estorno
+
+1. O sistema registra a rejeição.
+2. Informa o operador.
+
+### 📜 Regras de Negócio
+
+- RN012: Apenas pagamentos elegíveis podem ser estornados.
+- RN013: Todo estorno deve possuir justificativa registrada.
+- RN014: O histórico financeiro não pode ser removido.
+
+---
+
+## UC-FIN-007 — Gerenciar Centro de Custos
+
+### 🎯 Objetivo
+
+Permitir o cadastro e gerenciamento dos centros de custos utilizados pela operação financeira.
+
+### 👥 Atores
+
+- Operador Financeiro
+
+### 📋 Pré-condições
+
+- Usuário autenticado.
+- Permissão concedida.
+
+### ✅ Pós-condições
+
+- Centro de custos criado, atualizado ou inativado.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa o módulo de centros de custos.
+2. Seleciona a operação desejada.
+3. Informa os dados necessários.
+4. O sistema valida as informações.
+5. Salva o registro.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nome duplicado
+
+1. O sistema impede o cadastro.
+2. Solicita alteração.
+
+#### A2. Centro de custos vinculado a lançamentos
+
+1. O operador solicita exclusão.
+2. O sistema impede a remoção física.
+3. Sugere a inativação.
+
+### 📜 Regras de Negócio
+
+- RN015: Centros de custos utilizados em lançamentos financeiros não podem ser excluídos fisicamente.
+- RN016: Apenas centros de custos ativos podem ser utilizados em novos lançamentos.
+- RN017: Toda alteração deve permanecer registrada para auditoria.
 
 ---
 
 # 🧾 Fiscal
 
-## UC-FIS-001 — Emitir nota fiscal
+---
 
-**Ator:** Operador Fiscal
+## UC-FIS-001 — Emitir Nota Fiscal
 
-## UC-FIS-002 — Cancelar nota fiscal
+### 🎯 Objetivo
 
-**Ator:** Operador Fiscal
+Permitir a emissão de documentos fiscais eletrônicos para pedidos elegíveis.
 
-## UC-FIS-003 — Consultar situação fiscal
+### 👥 Atores
 
-**Ator:** Operador Fiscal
+- Operador Fiscal
 
-## UC-FIS-004 — Liberar pedido para expedição
+### 📋 Pré-condições
 
-**Ator:** Operador Fiscal
+- Operador autenticado.
+- Pedido aprovado e apto para faturamento.
+- Configuração fiscal válida.
+- Integração com o serviço emissor disponível.
+
+### ✅ Pós-condições
+
+- Nota fiscal emitida e vinculada ao pedido.
+- Situação fiscal atualizada.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa o pedido.
+2. Solicita a emissão da nota fiscal.
+3. O sistema valida os dados fiscais.
+4. Envia as informações ao serviço emissor.
+5. Recebe a autorização.
+6. Armazena a nota emitida.
+7. Atualiza o status do pedido.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Rejeição pelo órgão emissor
+
+1. O serviço retorna erro.
+2. O sistema registra a rejeição.
+3. Exibe a mensagem ao operador.
+
+#### A2. Falha de comunicação
+
+1. O sistema registra a ocorrência.
+2. Agenda nova tentativa ou solicita reprocessamento.
+
+### 📜 Regras de Negócio
+
+- RN001: Apenas pedidos aptos podem gerar nota fiscal.
+- RN002: Toda emissão deve permanecer registrada para auditoria.
+- RN003: O XML autorizado deve ser armazenado.
+
+---
+
+## UC-FIS-002 — Cancelar Nota Fiscal
+
+### 🎯 Objetivo
+
+Permitir o cancelamento de uma nota fiscal emitida.
+
+### 👥 Atores
+
+- Operador Fiscal
+
+### 📋 Pré-condições
+
+- Nota fiscal emitida.
+- Cancelamento permitido pela legislação vigente.
+
+### ✅ Pós-condições
+
+- Nota fiscal cancelada.
+- Pedido atualizado conforme política da loja.
+
+### 🔄 Fluxo Principal
+
+1. O operador seleciona a nota.
+2. Informa o motivo do cancelamento.
+3. O sistema envia a solicitação ao órgão competente.
+4. Recebe a confirmação.
+5. Atualiza os registros internos.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Prazo expirado
+
+1. O sistema identifica impossibilidade legal.
+2. Impede o cancelamento.
+
+#### A2. Rejeição pelo órgão fiscal
+
+1. O sistema registra o motivo.
+2. Informa o operador.
+
+### 📜 Regras de Negócio
+
+- RN004: Todo cancelamento deve possuir justificativa.
+- RN005: O histórico fiscal nunca deve ser removido.
+
+---
+
+## UC-FIS-003 — Consultar Situação Fiscal
+
+### 🎯 Objetivo
+
+Permitir a consulta do status de documentos fiscais emitidos.
+
+### 👥 Atores
+
+- Operador Fiscal
+
+### 📋 Pré-condições
+
+- Documento fiscal existente.
+
+### ✅ Pós-condições
+
+- Situação fiscal apresentada ao operador.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa o módulo fiscal.
+2. Seleciona um documento.
+3. O sistema consulta sua situação.
+4. Exibe o resultado.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Documento inexistente
+
+1. O sistema informa que não localizou o documento.
+
+#### A2. Serviço indisponível
+
+1. O sistema registra a falha.
+2. Permite nova consulta posteriormente.
+
+### 📜 Regras de Negócio
+
+- RN006: Consultas devem preservar a integridade dos registros fiscais.
+- RN007: Apenas usuários autorizados podem acessar informações fiscais.
+
+---
+
+## UC-FIS-004 — Liberar Pedido para Expedição
+
+### 🎯 Objetivo
+
+Permitir que um pedido seja liberado para o processo logístico após validação fiscal.
+
+### 👥 Atores
+
+- Operador Fiscal
+
+### 📋 Pré-condições
+
+- Pedido faturado.
+- Nota fiscal autorizada.
+
+### ✅ Pós-condições
+
+- Pedido liberado para expedição.
+
+### 🔄 Fluxo Principal
+
+1. O operador acessa o pedido.
+2. Verifica a situação fiscal.
+3. Confirma a liberação.
+4. O sistema atualiza o status.
+5. O pedido segue para logística.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nota pendente
+
+1. O sistema impede a liberação.
+
+#### A2. Nota rejeitada
+
+1. O sistema mantém o pedido bloqueado.
+
+### 📜 Regras de Negócio
+
+- RN008: Apenas pedidos fiscalmente regularizados podem seguir para expedição.
+- RN009: Toda liberação deve permanecer registrada.
 
 ---
 
 # 🚚 Logística
 
-## UC-LOG-001 — Calcular frete
+---
 
-**Ator:** Sistema Logístico
+## UC-LOG-001 — Calcular Frete
 
-## UC-LOG-002 — Gerar etiqueta
+### 🎯 Objetivo
 
-**Ator:** Sistema Logístico
+Permitir o cálculo das opções de entrega disponíveis para um pedido.
 
-## UC-LOG-003 — Atualizar status da entrega
+### 👥 Atores
 
-**Ator:** Sistema Logístico
+- Sistema Logístico
 
-## UC-LOG-004 — Registrar entrega
+### 📋 Pré-condições
 
-**Ator:** Sistema Logístico
+- CEP informado.
+- Produtos definidos no carrinho.
+
+### ✅ Pós-condições
+
+- Opções de frete apresentadas.
+
+### 🔄 Fluxo Principal
+
+1. O sistema recebe os dados do pedido.
+2. Consulta o serviço logístico.
+3. Recebe modalidades disponíveis.
+4. Exibe valores e prazos.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. CEP inválido
+
+1. O sistema informa erro.
+
+#### A2. Serviço indisponível
+
+1. O sistema registra a falha.
+2. Solicita nova tentativa.
+
+### 📜 Regras de Negócio
+
+- RN010: O cálculo deve considerar peso, dimensões e endereço de destino.
+- RN011: Apenas modalidades disponíveis devem ser apresentadas.
+
+---
+
+## UC-LOG-002 — Gerar Etiqueta
+
+### 🎯 Objetivo
+
+Gerar a etiqueta de envio para um pedido.
+
+### 👥 Atores
+
+- Sistema Logístico
+
+### 📋 Pré-condições
+
+- Pedido liberado para expedição.
+- Dados de entrega válidos.
+
+### ✅ Pós-condições
+
+- Etiqueta gerada e vinculada ao pedido.
+
+### 🔄 Fluxo Principal
+
+1. O sistema envia os dados ao provedor logístico.
+2. O serviço gera a etiqueta.
+3. Retorna o documento.
+4. O sistema registra a etiqueta.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Erro na integração
+
+1. O sistema registra a ocorrência.
+2. Permite novo processamento.
+
+### 📜 Regras de Negócio
+
+- RN012: Cada pedido deve possuir apenas uma etiqueta ativa por envio.
+- RN013: O identificador da etiqueta deve ser único.
+
+---
+
+## UC-LOG-003 — Atualizar Status da Entrega
+
+### 🎯 Objetivo
+
+Manter sincronizado o status logístico dos pedidos.
+
+### 👥 Atores
+
+- Sistema Logístico
+
+### 📋 Pré-condições
+
+- Pedido enviado.
+- Integração disponível.
+
+### ✅ Pós-condições
+
+- Status atualizado.
+
+### 🔄 Fluxo Principal
+
+1. O sistema consulta o provedor logístico.
+2. Recebe atualização da entrega.
+3. Atualiza o pedido.
+4. Registra o histórico.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Falha de comunicação
+
+1. O sistema registra a ocorrência.
+2. Agenda nova tentativa.
+
+### 📜 Regras de Negócio
+
+- RN014: Todo histórico de movimentação deve ser preservado.
+- RN015: As atualizações devem ser cronológicas.
+
+---
+
+## UC-LOG-004 — Registrar Entrega
+
+### 🎯 Objetivo
+
+Registrar a conclusão do processo de entrega de um pedido.
+
+### 👥 Atores
+
+- Sistema Logístico
+
+### 📋 Pré-condições
+
+- Pedido em trânsito.
+- Confirmação recebida do serviço logístico.
+
+### ✅ Pós-condições
+
+- Pedido marcado como entregue.
+
+### 🔄 Fluxo Principal
+
+1. O serviço logístico informa a entrega.
+2. O sistema valida a atualização.
+3. Altera o status do pedido.
+4. Registra a data e hora da entrega.
+5. Disponibiliza a informação ao cliente.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Informação inconsistente
+
+1. O sistema rejeita a atualização.
+2. Registra o evento para análise.
+
+### 📜 Regras de Negócio
+
+- RN016: O registro de entrega deve ser imutável após confirmação.
+- RN017: O histórico logístico deve permanecer disponível para consulta e auditoria.
 
 ---
 
 # 📈 Gestão
 
-## UC-GES-001 — Visualizar dashboard executivo
+---
 
-**Ator:** Gestor
+## UC-GES-001 — Visualizar Dashboard Executivo
 
-## UC-GES-002 — Visualizar relatórios comerciais
+### 🎯 Objetivo
 
-**Ator:** Gestor
+Permitir que o gestor acompanhe, em uma única interface, os principais indicadores estratégicos e operacionais da plataforma.
 
-## UC-GES-003 — Visualizar relatórios operacionais
+### 👥 Atores
 
-**Ator:** Gestor
+- Gestor
 
-## UC-GES-004 — Visualizar indicadores financeiros
+### 📋 Pré-condições
 
-**Ator:** Gestor
+- Gestor autenticado.
+- Permissão para acesso ao dashboard.
 
-## UC-GES-005 — Visualizar métricas de negócio
+### ✅ Pós-condições
 
-**Ator:** Gestor
+- Dashboard carregado com informações atualizadas.
 
-## UC-GES-006 — Comparar períodos
+### 🔄 Fluxo Principal
 
-**Ator:** Gestor
+1. O gestor acessa o módulo de gestão.
+2. Seleciona o Dashboard Executivo.
+3. O sistema consolida os indicadores disponíveis.
+4. Exibe gráficos, métricas e resumos da operação.
 
-## UC-GES-007 — Analisar tendências
+### 🔀 Fluxos Alternativos
 
-**Ator:** Gestor
+#### A1. Dados indisponíveis
 
-## UC-GES-008 — Exportar relatórios
+1. O sistema informa a indisponibilidade temporária.
+2. Exibe apenas os indicadores disponíveis.
 
-**Ator:** Gestor
+### 📜 Regras de Negócio
+
+- RN001: Os indicadores devem refletir dados consistentes da operação.
+- RN002: O dashboard deve respeitar as permissões do usuário.
+
+---
+
+## UC-GES-002 — Visualizar Relatórios Comerciais
+
+### 🎯 Objetivo
+
+Permitir a consulta de relatórios relacionados às atividades comerciais da plataforma.
+
+### 👥 Atores
+
+- Gestor
+
+### 📋 Pré-condições
+
+- Gestor autenticado.
+
+### ✅ Pós-condições
+
+- Relatório apresentado ao usuário.
+
+### 🔄 Fluxo Principal
+
+1. O gestor acessa o módulo de relatórios.
+2. Seleciona um relatório comercial.
+3. Define filtros quando necessário.
+4. O sistema gera e apresenta o relatório.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Nenhum registro encontrado
+
+1. O sistema informa ausência de dados para os filtros selecionados.
+
+### 📜 Regras de Negócio
+
+- RN003: Apenas dados autorizados devem ser exibidos.
+- RN004: Os filtros devem ser aplicados antes da geração do relatório.
+
+---
+
+## UC-GES-003 — Visualizar Relatórios Operacionais
+
+### 🎯 Objetivo
+
+Permitir o acompanhamento dos processos operacionais da plataforma.
+
+### 👥 Atores
+
+- Gestor
+
+### 📋 Pré-condições
+
+- Gestor autenticado.
+
+### ✅ Pós-condições
+
+- Relatório operacional exibido.
+
+### 🔄 Fluxo Principal
+
+1. O gestor seleciona um relatório operacional.
+2. Define período e filtros.
+3. O sistema processa as informações.
+4. Exibe o relatório.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Não existirem registros
+
+1. O sistema apresenta mensagem informativa.
+
+### 📜 Regras de Negócio
+
+- RN005: O relatório deve utilizar dados atualizados da operação.
+
+---
+
+## UC-GES-004 — Visualizar Indicadores Financeiros
+
+### 🎯 Objetivo
+
+Permitir o acompanhamento dos principais indicadores financeiros do negócio.
+
+### 👥 Atores
+
+- Gestor
+
+### 📋 Pré-condições
+
+- Gestor autenticado.
+- Permissão para acesso financeiro.
+
+### ✅ Pós-condições
+
+- Indicadores financeiros apresentados.
+
+### 🔄 Fluxo Principal
+
+1. O gestor acessa o painel financeiro.
+2. O sistema consolida receitas, despesas e demais indicadores.
+3. Exibe gráficos e métricas.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados financeiros indisponíveis
+
+1. O sistema informa indisponibilidade temporária.
+
+### 📜 Regras de Negócio
+
+- RN006: Apenas usuários autorizados podem visualizar indicadores financeiros.
+- RN007: Os cálculos devem considerar apenas registros válidos.
+
+---
+
+## UC-GES-005 — Visualizar Métricas de Negócio
+
+### 🎯 Objetivo
+
+Permitir o acompanhamento das métricas estratégicas da plataforma.
+
+### 👥 Atores
+
+- Gestor
+
+### 📋 Pré-condições
+
+- Gestor autenticado.
+
+### ✅ Pós-condições
+
+- Métricas apresentadas ao usuário.
+
+### 🔄 Fluxo Principal
+
+1. O gestor acessa o painel de métricas.
+2. Seleciona o período desejado.
+3. O sistema calcula os indicadores.
+4. Exibe os resultados.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados insuficientes
+
+1. O sistema informa impossibilidade de cálculo.
+
+### 📜 Regras de Negócio
+
+- RN008: As métricas devem utilizar critérios padronizados.
+- RN009: Os cálculos devem permanecer consistentes entre consultas.
+
+---
+
+## UC-GES-006 — Comparar Períodos
+
+### 🎯 Objetivo
+
+Permitir a comparação entre diferentes períodos para análise da evolução do negócio.
+
+### 👥 Atores
+
+- Gestor
+
+### 📋 Pré-condições
+
+- Existirem dados para ambos os períodos.
+
+### ✅ Pós-condições
+
+- Comparação apresentada.
+
+### 🔄 Fluxo Principal
+
+1. O gestor seleciona dois períodos.
+2. O sistema consolida os dados.
+3. Calcula diferenças e variações.
+4. Exibe gráficos comparativos.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Um dos períodos não possui dados
+
+1. O sistema informa a ausência de informações.
+
+### 📜 Regras de Negócio
+
+- RN010: Os critérios de comparação devem ser equivalentes para ambos os períodos.
+
+---
+
+## UC-GES-007 — Analisar Tendências
+
+### 🎯 Objetivo
+
+Permitir a identificação de padrões e tendências a partir dos dados históricos.
+
+### 👥 Atores
+
+- Gestor
+
+### 📋 Pré-condições
+
+- Existirem dados históricos suficientes.
+
+### ✅ Pós-condições
+
+- Tendências calculadas e apresentadas.
+
+### 🔄 Fluxo Principal
+
+1. O gestor solicita análise.
+2. O sistema processa os dados históricos.
+3. Calcula indicadores de tendência.
+4. Exibe gráficos e projeções.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Histórico insuficiente
+
+1. O sistema informa impossibilidade da análise.
+
+### 📜 Regras de Negócio
+
+- RN011: As análises devem utilizar dados consolidados e consistentes.
+- RN012: Projeções possuem caráter informativo e não garantem resultados futuros.
+
+---
+
+## UC-GES-008 — Exportar Relatórios
+
+### 🎯 Objetivo
+
+Permitir a exportação dos relatórios gerados pela plataforma.
+
+### 👥 Atores
+
+- Gestor
+
+### 📋 Pré-condições
+
+- Relatório previamente gerado.
+- Usuário autorizado.
+
+### ✅ Pós-condições
+
+- Arquivo disponibilizado para download.
+
+### 🔄 Fluxo Principal
+
+1. O gestor gera um relatório.
+2. Seleciona a opção de exportação.
+3. Define o formato desejado.
+4. O sistema gera o arquivo.
+5. Disponibiliza o download.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Erro na geração
+
+1. O sistema informa a falha.
+2. Permite nova tentativa.
+
+### 📜 Regras de Negócio
+
+- RN013: Apenas usuários autorizados podem exportar relatórios.
+- RN014: Os dados exportados devem respeitar as permissões de acesso do usuário.
+- RN015: O formato do arquivo deve seguir os padrões suportados pela plataforma.
 
 ---
 
 # ⚙️ Configuração da Plataforma
 
-## UC-CFG-001 — Configurar informações da loja
+---
 
-**Ator:** Administrador
+## UC-CFG-001 — Configurar Informações da Loja
 
-## UC-CFG-002 — Configurar meios de pagamento
+### 🎯 Objetivo
 
-**Ator:** Administrador
+Permitir que o administrador configure as informações institucionais e operacionais da loja.
 
-## UC-CFG-003 — Configurar métodos de entrega
+### 👥 Atores
 
-**Ator:** Administrador
+- Administrador
 
-## UC-CFG-004 — Configurar integrações externas
+### 📋 Pré-condições
 
-**Ator:** Administrador
+- Administrador autenticado.
+- Permissão para gerenciamento das configurações da plataforma.
+
+### ✅ Pós-condições
+
+- Informações da loja atualizadas e persistidas.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de configurações.
+2. Seleciona a seção de informações da loja.
+3. Atualiza os dados desejados.
+4. O sistema valida as informações.
+5. O sistema salva as alterações.
+6. Exibe mensagem de confirmação.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Dados inválidos
+
+1. O sistema identifica inconsistências.
+2. Solicita correção antes do salvamento.
+
+### 📜 Regras de Negócio
+
+- RN001: As informações institucionais devem ser únicas por loja.
+- RN002: Apenas usuários autorizados podem realizar alterações.
+- RN003: As alterações devem ser registradas para auditoria.
+
+---
+
+## UC-CFG-002 — Configurar Meios de Pagamento
+
+### 🎯 Objetivo
+
+Permitir o gerenciamento dos meios de pagamento disponíveis para utilização pelos clientes.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+- Integração com gateways disponível quando aplicável.
+
+### ✅ Pós-condições
+
+- Configuração de pagamento atualizada.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa a configuração de pagamentos.
+2. Seleciona ou altera um meio de pagamento.
+3. Define parâmetros necessários.
+4. O sistema valida os dados.
+5. Salva a configuração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Configuração inválida
+
+1. O sistema impede o salvamento.
+2. Exibe mensagem informativa.
+
+### 📜 Regras de Negócio
+
+- RN004: Apenas meios de pagamento ativos devem ser disponibilizados aos clientes.
+- RN005: Credenciais sensíveis devem ser armazenadas de forma segura.
+- RN006: Alterações devem ser auditáveis.
+
+---
+
+## UC-CFG-003 — Configurar Métodos de Entrega
+
+### 🎯 Objetivo
+
+Permitir o gerenciamento das modalidades de entrega oferecidas pela loja.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Métodos de entrega configurados.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de logística.
+2. Seleciona ou cria um método de entrega.
+3. Define regras e parâmetros.
+4. O sistema valida as informações.
+5. Salva a configuração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Configuração inconsistente
+
+1. O sistema impede a operação.
+2. Solicita ajustes.
+
+### 📜 Regras de Negócio
+
+- RN007: Apenas métodos ativos podem ser utilizados no checkout.
+- RN008: As configurações devem respeitar a estratégia logística definida pela loja.
+
+---
+
+## UC-CFG-004 — Configurar Integrações Externas
+
+### 🎯 Objetivo
+
+Permitir a configuração das integrações da plataforma com serviços externos.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+- Serviço externo suportado pela plataforma.
+
+### ✅ Pós-condições
+
+- Integração cadastrada ou atualizada.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de integrações.
+2. Seleciona um serviço externo.
+3. Informa credenciais e parâmetros.
+4. O sistema valida a conexão.
+5. Salva a configuração.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Falha de autenticação
+
+1. O sistema identifica erro nas credenciais.
+2. Informa o administrador.
+3. Impede a conclusão da operação.
+
+### 📜 Regras de Negócio
+
+- RN009: Credenciais devem ser armazenadas de forma criptografada.
+- RN010: O sistema deve permitir ativar ou desativar integrações sem afetar o núcleo da aplicação.
+- RN011: Alterações devem ser registradas em auditoria.
+
+---
 
 ## UC-CFG-005 — Configurar SEO
 
-**Ator:** Administrador
+### 🎯 Objetivo
 
-## UC-CFG-006 — Configurar aparência da loja
+Permitir o gerenciamento das configurações de otimização para mecanismos de busca.
 
-**Ator:** Administrador
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Configurações de SEO atualizadas.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de SEO.
+2. Configura títulos, descrições, URLs e demais parâmetros.
+3. O sistema valida as informações.
+4. Salva as configurações.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Campos obrigatórios ausentes
+
+1. O sistema impede o salvamento.
+2. Solicita preenchimento.
+
+### 📜 Regras de Negócio
+
+- RN012: O sistema deve permitir configuração de metadados por página.
+- RN013: Deve suportar Open Graph, Twitter Cards e dados estruturados.
+- RN014: URLs devem ser amigáveis e únicas.
+
+---
+
+## UC-CFG-006 — Configurar Aparência da Loja
+
+### 🎯 Objetivo
+
+Permitir a personalização visual da loja virtual.
+
+### 👥 Atores
+
+- Administrador
+
+### 📋 Pré-condições
+
+- Administrador autenticado.
+
+### ✅ Pós-condições
+
+- Configuração visual atualizada.
+
+### 🔄 Fluxo Principal
+
+1. O administrador acessa o módulo de aparência.
+2. Configura identidade visual, cores, logotipo e demais elementos.
+3. O sistema valida os dados.
+4. Salva as alterações.
+5. Disponibiliza a nova configuração para a loja.
+
+### 🔀 Fluxos Alternativos
+
+#### A1. Arquivo inválido
+
+1. O sistema rejeita o upload.
+2. Solicita novo arquivo compatível.
+
+#### A2. Configuração incompatível
+
+1. O sistema impede a publicação.
+2. Exibe mensagem explicativa.
+
+### 📜 Regras de Negócio
+
+- RN015: Apenas arquivos suportados podem ser utilizados.
+- RN016: A personalização não deve comprometer o funcionamento do núcleo da plataforma.
+- RN017: Toda alteração deve ser registrada para auditoria e possibilitar reversão quando aplicável.x
 
 ---
 
 # 🎯 Cobertura do Roadmap
 
-Este conjunto de casos de uso foi estruturado para refletir diretamente os módulos previstos no roadmap do My Ecommerce:
+O conjunto de casos de uso do **My Ecommerce** foi elaborado para representar as principais funcionalidades previstas no roadmap da plataforma, garantindo alinhamento entre os requisitos funcionais, as regras de negócio, a arquitetura e a implementação do sistema.
+
+## 📚 Módulos contemplados
 
 - 🛍️ Loja Virtual
 - 👤 Usuários
@@ -439,4 +3534,30 @@ Este conjunto de casos de uso foi estruturado para refletir diretamente os módu
 - 📈 Gestão
 - ⚙️ Configuração da Plataforma
 
-A organização por domínio facilita a manutenção da documentação e a rastreabilidade entre requisitos, arquitetura e implementação.
+## 🎯 Objetivos da documentação
+
+A organização dos casos de uso por domínio tem como finalidade:
+
+- facilitar a compreensão das funcionalidades da plataforma;
+- documentar o comportamento esperado de cada processo de negócio;
+- servir como base para a implementação das funcionalidades;
+- apoiar a elaboração de testes funcionais e de integração;
+- garantir a rastreabilidade entre requisitos, regras de negócio, arquitetura e código-fonte;
+- simplificar a manutenção e evolução contínua do sistema;
+- apoiar futuras integrações e a expansão modular da plataforma.
+
+## 📌 Observações
+
+Os casos de uso representam uma visão funcional da plataforma e podem ser refinados ou estendidos conforme a evolução do roadmap e a incorporação de novos módulos e funcionalidades.
+
+Cada caso de uso está estruturado de forma padronizada, contendo:
+
+- 🎯 Objetivo
+- 👥 Atores
+- 📋 Pré-condições
+- ✅ Pós-condições
+- 🔄 Fluxo Principal
+- 🔀 Fluxos Alternativos
+- 📜 Regras de Negócio
+
+Essa padronização promove maior consistência na documentação, melhora a comunicação entre as equipes envolvidas e facilita o desenvolvimento, a validação e a manutenção do **My Ecommerce** ao longo de seu ciclo de vida.
