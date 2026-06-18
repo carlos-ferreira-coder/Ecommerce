@@ -75,7 +75,8 @@ Permitir que o cliente acesse a página inicial da loja e visualize os principai
 
 ### 📜 Regras de Negócio
 
-- RN001: Apenas produtos ativos podem ser exibidos.
+- RN006 — Todo produto deve possuir um estado operacional.
+- RN009 — Produtos indisponíveis não podem ser comercializados.
 
 ---
 
@@ -111,7 +112,8 @@ Permitir que o cliente encontre produtos por meio de pesquisa textual.
 
 ### 📜 Regras de Negócio
 
-- RN002: Apenas produtos publicados podem aparecer na busca.
+- RN006 — Todo produto deve possuir um estado operacional.
+- RN007 — Apenas produtos completos podem ser publicados.
 
 ---
 
@@ -147,7 +149,8 @@ Permitir que o cliente refine os resultados por filtros.
 
 ### 📜 Regras de Negócio
 
-- RN003: Os filtros devem considerar apenas produtos ativos.
+- RN006 — Todo produto deve possuir um estado operacional.
+- RN009 — Produtos indisponíveis não podem ser comercializados.
 
 ---
 
@@ -182,7 +185,8 @@ Permitir que o cliente visualize os detalhes de um produto.
 
 ### 📜 Regras de Negócio
 
-- RN004: Produtos inativos não devem possuir página pública.
+- RN007 — Apenas produtos completos podem ser publicados.
+- RN009 — Produtos indisponíveis não podem ser comercializados.
 
 ---
 
@@ -217,7 +221,7 @@ Permitir que o cliente escolha uma variante do produto.
 
 ### 📜 Regras de Negócio
 
-- RN005: Cada variante possui estoque próprio.
+- RN011 — Variantes devem possuir gerenciamento independente.
 
 ---
 
@@ -256,7 +260,9 @@ Permitir que o cliente adicione produtos ao carrinho.
 
 ### 📜 Regras de Negócio
 
-- RN006: Não permitir quantidade superior ao estoque.
+- RN009 — Produtos indisponíveis não podem ser comercializados.
+- RN027 — O carrinho não garante reserva definitiva de estoque.
+- RN041 — O estoque disponível não deve assumir saldo negativo.
 
 ---
 
@@ -291,7 +297,9 @@ Permitir alterações no carrinho.
 
 ### 📜 Regras de Negócio
 
-- RN007: O total deve ser recalculado automaticamente.
+- RN022 — O carrinho deve ser revalidado antes da confirmação do pedido.
+- RN023 — O carrinho deve refletir o estado atual da operação.
+- RN024 — Produtos indisponíveis não devem permanecer aptos para compra.
 
 ---
 
@@ -327,7 +335,9 @@ Permitir utilização de cupons promocionais.
 
 ### 📜 Regras de Negócio
 
-- RN008: Toda validação deve ocorrer no backend.
+- RN030 — Cupons promocionais devem possuir critérios de utilização.
+- RN031 — A rejeição de um cupom deve ser informada ao cliente.
+- RN032 — Promoções simultâneas devem respeitar as regras de cumulatividade.
 
 ---
 
@@ -364,7 +374,7 @@ Calcular opções de entrega.
 
 ### 📜 Regras de Negócio
 
-- RN009: O valor definitivo deve ser confirmado no checkout.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
 
 ---
 
@@ -402,7 +412,9 @@ Criar um pedido válido.
 
 ### 📜 Regras de Negócio
 
-- RN010: Pedido não pode ser criado com dados inconsistentes.
+- RN022 — O carrinho deve ser revalidado antes da confirmação do pedido.
+- RN033 — Um pedido somente poderá ser criado quando atender às regras comerciais da plataforma.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
 
 ---
 
@@ -441,7 +453,8 @@ Processar pagamento do pedido.
 
 ### 📜 Regras de Negócio
 
-- RN011: O sistema deve suportar confirmação assíncrona.
+- RN071 — O processamento de pagamentos deve suportar diferentes tempos de confirmação.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
 
 ---
 
@@ -476,7 +489,8 @@ Permitir consulta do andamento do pedido.
 
 ### 📜 Regras de Negócio
 
-- RN012: Cliente só pode visualizar seus próprios pedidos.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
 
 ---
 
@@ -512,7 +526,8 @@ Solicitar cancelamento do pedido.
 
 ### 📜 Regras de Negócio
 
-- RN013: A política da loja define os estágios permitidos.
+- RN036 — O cancelamento do pedido deve respeitar seu estágio operacional.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
 
 ---
 
@@ -547,7 +562,7 @@ Registrar pedido de devolução.
 
 ### 📜 Regras de Negócio
 
-- RN014: O prazo segue a política da loja.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
 
 ---
 
@@ -582,7 +597,7 @@ Registrar solicitação de troca.
 
 ### 📜 Regras de Negócio
 
-- RN015: A política comercial define os critérios.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
 
 ---
 
@@ -617,7 +632,7 @@ Permitir salvar produtos para consulta futura.
 
 ### 📜 Regras de Negócio
 
-- RN016: Favoritos pertencem exclusivamente ao cliente.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -654,7 +669,7 @@ Permitir avaliação de produtos adquiridos.
 
 ### 📜 Regras de Negócio
 
-- RN017: A plataforma pode restringir avaliações a compradores verificados.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -705,9 +720,9 @@ Permitir que um visitante realize seu cadastro na plataforma e passe a utilizar 
 
 ### 📜 Regras de Negócio
 
-- RN001: O e-mail deve ser único.
-- RN002: A senha deve atender aos requisitos mínimos de segurança.
-- RN003: Dados obrigatórios devem ser informados.
+- RN048 — Todo cliente deve possuir identificação mínima.
+- RN051 — O endereço de e-mail deve identificar uma única conta.
+- RN052 — O tratamento de dados pessoais deve respeitar a privacidade do usuário.
 
 ---
 
@@ -752,8 +767,9 @@ Permitir que um cliente acesse sua conta.
 
 ### 📜 Regras de Negócio
 
-- RN004: A autenticação deve ocorrer de forma segura.
-- RN005: Sessões devem respeitar políticas de expiração.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
+- RN052 — O tratamento de dados pessoais deve respeitar a privacidade do usuário.
 
 ---
 
@@ -796,8 +812,9 @@ Permitir que o cliente redefina sua senha.
 
 ### 📜 Regras de Negócio
 
-- RN006: Tokens devem possuir validade limitada.
-- RN007: Cada token deve ser utilizado apenas uma vez.
+- RN048 — Todo cliente deve possuir identificação mínima.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN052 — O tratamento de dados pessoais deve respeitar a privacidade do usuário.
 
 ---
 
@@ -835,8 +852,8 @@ Permitir que o cliente mantenha seus dados pessoais atualizados.
 
 ### 📜 Regras de Negócio
 
-- RN008: Apenas o próprio cliente pode alterar seus dados.
-- RN009: Alterações devem ser registradas para auditoria quando aplicável.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
+- RN052 — O tratamento de dados pessoais deve respeitar a privacidade do usuário.
 
 ---
 
@@ -874,8 +891,8 @@ Permitir que o cliente mantenha seus endereços de entrega e cobrança.
 
 ### 📜 Regras de Negócio
 
-- RN010: Um cliente pode possuir múltiplos endereços.
-- RN011: Deve existir apenas um endereço padrão por tipo.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
+- RN053 — Um cliente poderá possuir múltiplos endereços.
 
 ---
 
@@ -917,7 +934,9 @@ Permitir que administradores realizem a gestão dos usuários da plataforma.
 
 ### 📜 Regras de Negócio
 
-- RN012: Toda alteração deve ser auditada.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -954,7 +973,8 @@ Permitir o cadastro e manutenção dos papéis utilizados pelo sistema.
 
 ### 📜 Regras de Negócio
 
-- RN013: O papel Administrador não pode ser removido.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -990,7 +1010,8 @@ Permitir a associação de permissões aos papéis existentes.
 
 ### 📜 Regras de Negócio
 
-- RN014: Toda alteração deve ser registrada em auditoria.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -1028,9 +1049,8 @@ Garantir que cada usuário acesse apenas os recursos autorizados.
 
 ### 📜 Regras de Negócio
 
-- RN015: O princípio do menor privilégio deve ser aplicado.
-- RN016: Na ausência de permissão explícita, o acesso deve ser negado.
-- RN017: A validação deve ocorrer no backend.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -1082,9 +1102,10 @@ Permitir que um administrador cadastre um novo produto para disponibilização n
 
 ### 📜 Regras de Negócio
 
-- RN001: Todo produto deve possuir identificação única.
-- RN002: O SKU deve ser único quando utilizado.
-- RN003: Produtos ativos devem possuir todas as informações obrigatórias.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN005 — Todo produto deve possuir identificação única.
+- RN006 — Todo produto deve possuir um estado operacional.
+- RN007 — Apenas produtos completos podem ser publicados.
 
 ---
 
@@ -1128,8 +1149,9 @@ Permitir a atualização das informações de um produto existente.
 
 ### 📜 Regras de Negócio
 
-- RN004: Alterações não devem modificar informações históricas de pedidos já realizados.
-- RN005: Alterações devem ser registradas em auditoria.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN011 — Alterações no catálogo não devem afetar o histórico de pedidos.
+- RN018 — Produtos devem permanecer rastreáveis após sua descontinuação.
 
 ---
 
@@ -1167,8 +1189,9 @@ Permitir que um produto deixe de ser comercializado sem perder seu histórico.
 
 ### 📜 Regras de Negócio
 
-- RN006: Produtos vinculados a pedidos não podem ser excluídos fisicamente.
-- RN007: Produtos inativos não devem ser exibidos na loja.
+- RN006 — Todo produto deve possuir um estado operacional.
+- RN009 — Produtos vinculados a pedidos não podem ser excluídos permanentemente.
+- RN018 — Produtos devem permanecer rastreáveis após sua descontinuação.
 
 ---
 
@@ -1213,8 +1236,9 @@ Permitir o cadastro em massa de produtos utilizando arquivos externos.
 
 ### 📜 Regras de Negócio
 
-- RN008: Apenas registros válidos podem ser importados.
-- RN009: O processo deve registrar logs de execução.
+- RN005 — Todo produto deve possuir identificação única.
+- RN007 — Apenas produtos completos podem ser publicados.
+- RN019 — A integridade referencial do catálogo deve ser preservada.
 
 ---
 
@@ -1253,8 +1277,8 @@ Permitir a exportação das informações dos produtos cadastrados.
 
 ### 📜 Regras de Negócio
 
-- RN010: O formato do arquivo deve seguir o padrão definido pela plataforma.
-- RN011: Apenas usuários autorizados podem exportar informações.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -1299,9 +1323,8 @@ Permitir o cadastro, atualização, organização e inativação das categorias 
 
 ### 📜 Regras de Negócio
 
-- RN012: Categorias vinculadas a produtos não podem ser removidas fisicamente.
-- RN013: O sistema deve permitir estrutura hierárquica de categorias.
-- RN014: Apenas categorias ativas podem ser utilizadas em novos produtos.
+- RN019 — A integridade referencial do catálogo deve ser preservada.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -1349,8 +1372,10 @@ Permitir o gerenciamento e acompanhamento da quantidade disponível de produtos 
 
 ### 📜 Regras de Negócio
 
-- RN001: Apenas usuários autorizados podem gerenciar estoque.
-- RN002: O estoque deve refletir a situação operacional atual da loja.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
+- RN041 — O estoque disponível não deve assumir saldo negativo.
+- RN045 — Toda movimentação de estoque deve permanecer registrada.
 
 ---
 
@@ -1392,8 +1417,8 @@ Permitir o registro de novas unidades de produtos no estoque.
 
 ### 📜 Regras de Negócio
 
-- RN003: Toda entrada deve gerar histórico de movimentação.
-- RN004: A operação deve registrar usuário, data e motivo.
+- RN042 — Ajustes manuais de estoque devem ser rastreáveis.
+- RN045 — Toda movimentação de estoque deve permanecer registrada.
 
 ---
 
@@ -1435,8 +1460,8 @@ Permitir o registro manual de redução do estoque.
 
 ### 📜 Regras de Negócio
 
-- RN005: O estoque nunca pode assumir valor negativo.
-- RN006: Toda saída deve permanecer registrada para auditoria.
+- RN041 — O estoque disponível não deve assumir saldo negativo.
+- RN045 — Toda movimentação de estoque deve permanecer registrada.
 
 ---
 
@@ -1478,8 +1503,9 @@ Permitir correções manuais na quantidade disponível de um produto.
 
 ### 📜 Regras de Negócio
 
-- RN007: Todo ajuste deve possuir justificativa obrigatória.
-- RN008: O histórico deve armazenar valor anterior e valor atualizado.
+- RN042 — Ajustes manuais de estoque devem ser rastreáveis.
+- RN043 — Divergências de estoque devem permitir correção controlada.
+- RN045 — Toda movimentação de estoque deve permanecer registrada.
 
 ---
 
@@ -1521,8 +1547,8 @@ Permitir a conferência física e reconciliação do estoque.
 
 ### 📜 Regras de Negócio
 
-- RN009: O inventário deve gerar registro histórico.
-- RN010: Alterações decorrentes do inventário devem ser auditáveis.
+- RN043 — Divergências de estoque devem permitir correção controlada.
+- RN045 — Toda movimentação de estoque deve permanecer registrada.
 
 ---
 
@@ -1565,8 +1591,9 @@ Reservar temporariamente unidades de produtos durante o processo de compra.
 
 ### 📜 Regras de Negócio
 
-- RN011: A reserva deve respeitar o tempo máximo configurado.
-- RN012: A estratégia de reserva pode ser configurável por loja.
+- RN042 — A disponibilidade do estoque deve ser garantida antes da confirmação do pedido.
+- RN046 — Reservas temporárias devem respeitar as políticas da plataforma.
+- RN041 — O estoque disponível não deve assumir saldo negativo.
 
 ---
 
@@ -1604,8 +1631,9 @@ Liberar automaticamente ou manualmente o estoque reservado quando a compra não 
 
 ### 📜 Regras de Negócio
 
-- RN013: Reservas expiradas devem ser liberadas automaticamente.
-- RN014: Toda liberação deve permanecer registrada para fins de auditoria.
+- RN046 — Reservas temporárias devem respeitar as políticas da plataforma.
+- RN045 — Toda movimentação de estoque deve permanecer registrada.
+- RN047 — Movimentações decorrentes de pedidos devem manter consistência com o estoque.
 
 ---
 
@@ -1652,8 +1680,9 @@ Permitir que o administrador consulte, filtre e gerencie os pedidos realizados n
 
 ### 📜 Regras de Negócio
 
-- RN001: Apenas usuários autorizados podem acessar pedidos.
-- RN002: Todo acesso administrativo pode ser registrado para auditoria.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -1694,8 +1723,9 @@ Permitir a alteração do status operacional de um pedido.
 
 ### 📜 Regras de Negócio
 
-- RN003: O pedido deve seguir uma máquina de estados definida.
-- RN004: Toda alteração deve ser registrada para auditoria.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
 
 ---
 
@@ -1740,8 +1770,9 @@ Permitir que um pedido seja aprovado para continuidade do fluxo operacional.
 
 ### 📜 Regras de Negócio
 
-- RN005: Apenas pedidos válidos podem ser aprovados.
-- RN006: O estoque deve estar disponível antes da aprovação definitiva.
+- RN033 — Um pedido somente poderá ser criado quando atender às regras comerciais da plataforma.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
+- RN041 — O estoque disponível não deve assumir saldo negativo.
 
 ---
 
@@ -1786,9 +1817,9 @@ Permitir que um administrador realize o cancelamento de um pedido.
 
 ### 📜 Regras de Negócio
 
-- RN007: Todo cancelamento deve possuir motivo registrado.
-- RN008: O cancelamento deve ser auditável.
-- RN009: Quando aplicável, a reserva de estoque deve ser liberada.
+- RN036 — O cancelamento do pedido deve respeitar seu estágio operacional.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
 
 ---
 
@@ -1828,8 +1859,8 @@ Gerar a etiqueta necessária para expedição do pedido.
 
 ### 📜 Regras de Negócio
 
-- RN010: Apenas pedidos aptos para envio podem gerar etiqueta.
-- RN011: O processo deve ser idempotente para evitar duplicidades.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
 
 ---
 
@@ -1866,8 +1897,8 @@ Gerar o documento contendo os pedidos que serão separados ou expedidos.
 
 ### 📜 Regras de Negócio
 
-- RN012: O romaneio deve refletir apenas pedidos autorizados para separação.
-- RN013: O documento deve possuir identificação única.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
 
 ---
 
@@ -1912,9 +1943,10 @@ Registrar uma devolução de produtos vinculada a um pedido.
 
 ### 📜 Regras de Negócio
 
-- RN014: Toda devolução deve possuir justificativa.
-- RN015: A devolução deve permanecer vinculada ao pedido original.
-- RN016: Quando aplicável, o estoque deve ser atualizado conforme a política da loja.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
+- RN043 — Divergências operacionais devem permitir correção controlada.
+- RN045 — Toda movimentação de estoque deve permanecer registrada.
 
 ---
 
@@ -1963,8 +1995,7 @@ Permitir que visitantes forneçam seus dados de contato para futuras ações com
 
 ### 📜 Regras de Negócio
 
-- RN001: O lead deve possuir pelo menos um meio válido de contato.
-- RN002: A captura deve respeitar as regras de privacidade e consentimento aplicáveis.
+- RN052 — O tratamento de dados pessoais deve respeitar a privacidade do usuário.
 
 ---
 
@@ -2002,8 +2033,9 @@ Permitir que administradores consultem e acompanhem os leads cadastrados.
 
 ### 📜 Regras de Negócio
 
-- RN003: Alterações devem ser registradas para auditoria.
-- RN004: O histórico de interações deve ser preservado.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -2044,8 +2076,8 @@ Permitir que um lead seja convertido em cliente e origine um pedido.
 
 ### 📜 Regras de Negócio
 
-- RN005: O histórico do lead deve ser preservado após a conversão.
-- RN006: Um lead convertido não deve gerar duplicidade de clientes.
+- RN033 — Um pedido somente poderá ser criado quando atender às regras comerciais da plataforma.
+- RN052 — O tratamento de dados pessoais deve respeitar a privacidade do usuário.
 
 ---
 
@@ -2083,8 +2115,9 @@ Permitir que o sistema identifique carrinhos abandonados e execute ações autom
 
 ### 📜 Regras de Negócio
 
-- RN007: O prazo para caracterização de abandono deve ser configurável.
-- RN008: A comunicação deve respeitar preferências e políticas de privacidade.
+- RN021 — O carrinho deve permitir persistência para visitantes.
+- RN026 — A autenticação não deve resultar na perda do carrinho.
+- RN052 — O tratamento de dados pessoais deve respeitar a privacidade do usuário.
 
 ---
 
@@ -2120,8 +2153,9 @@ Apresentar sugestões de produtos relacionados durante a navegação.
 
 ### 📜 Regras de Negócio
 
-- RN009: Apenas produtos ativos podem ser recomendados.
-- RN010: Produtos sem estoque podem ser ocultados conforme configuração.
+- RN006 — Todo produto deve possuir um estado operacional definido.
+- RN007 — Apenas produtos completos podem ser publicados.
+- RN008 — Produtos indisponíveis não devem ser comercializados.
 
 ---
 
@@ -2157,7 +2191,9 @@ Apresentar produtos destacados em áreas estratégicas da loja.
 
 ### 📜 Regras de Negócio
 
-- RN011: Apenas produtos ativos podem ser destacados.
+- RN006 — Todo produto deve possuir um estado operacional definido.
+- RN007 — Apenas produtos completos podem ser publicados.
+- RN008 — Produtos indisponíveis não devem ser comercializados.
 
 ---
 
@@ -2195,8 +2231,7 @@ Permitir a criação e manutenção dos banners promocionais exibidos na loja.
 
 ### 📜 Regras de Negócio
 
-- RN012: Apenas banners ativos devem ser exibidos.
-- RN013: Períodos de vigência devem ser respeitados.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2233,8 +2268,9 @@ Permitir o gerenciamento de campanhas promocionais da plataforma.
 
 ### 📜 Regras de Negócio
 
-- RN014: Campanhas não podem possuir regras conflitantes.
-- RN015: A vigência deve ser respeitada automaticamente.
+- RN028 — Promoções devem possuir regras de vigência.
+- RN032 — Promoções conflitantes devem respeitar as regras de cumulatividade.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2277,9 +2313,10 @@ Permitir a criação e manutenção de cupons promocionais.
 
 ### 📜 Regras de Negócio
 
-- RN016: Cada cupom deve possuir identificador único.
-- RN017: O sistema deve validar automaticamente vigência, limite de uso e critérios de elegibilidade.
-- RN018: Cupons expirados ou inativos não podem ser aplicados em pedidos.
+- RN029 — Cupons promocionais devem possuir regras explícitas.
+- RN030 — O sistema deve informar o motivo da rejeição de um cupom.
+- RN032 — Promoções conflitantes devem respeitar as regras de cumulatividade.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2332,9 +2369,9 @@ Permitir que o sistema valide o resultado de uma transação financeira realizad
 
 ### 📜 Regras de Negócio
 
-- RN001: O sistema deve suportar confirmações assíncronas (webhooks).
-- RN002: O status financeiro deve refletir exatamente o retorno do gateway.
-- RN003: Toda transação deve ser registrada para auditoria.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
+- RN071 — O processamento de pagamentos deve suportar confirmações assíncronas.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2374,8 +2411,8 @@ Permitir a conciliação entre os pagamentos registrados na plataforma e os valo
 
 ### 📜 Regras de Negócio
 
-- RN004: Nenhuma conciliação deve alterar automaticamente valores financeiros sem validação quando exigido.
-- RN005: Todas as divergências devem permanecer registradas.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN056 — Relatórios financeiros devem utilizar dados transacionais consolidados.
 
 ---
 
@@ -2413,8 +2450,9 @@ Permitir o gerenciamento dos valores que a empresa possui a receber.
 
 ### 📜 Regras de Negócio
 
-- RN006: Toda conta deve possuir situação financeira definida.
-- RN007: Baixas devem permanecer registradas para auditoria.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2452,8 +2490,9 @@ Permitir o gerenciamento das obrigações financeiras da empresa.
 
 ### 📜 Regras de Negócio
 
-- RN008: Cada lançamento deve possuir categoria financeira.
-- RN009: Pagamentos realizados devem permanecer registrados.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2490,8 +2529,9 @@ Permitir o acompanhamento das entradas, saídas e saldo financeiro da operação
 
 ### 📜 Regras de Negócio
 
-- RN010: O fluxo deve considerar apenas movimentações válidas.
-- RN011: Projeções devem utilizar informações financeiras futuras cadastradas.
+- RN055 — Indicadores devem possuir fonte de dados confiável.
+- RN056 — Relatórios financeiros devem utilizar dados transacionais consolidados.
+- RN057 — Dados operacionais e analíticos devem permanecer separados.
 
 ---
 
@@ -2531,9 +2571,9 @@ Permitir o processamento de estornos financeiros relacionados a pagamentos.
 
 ### 📜 Regras de Negócio
 
-- RN012: Apenas pagamentos elegíveis podem ser estornados.
-- RN013: Todo estorno deve possuir justificativa registrada.
-- RN014: O histórico financeiro não pode ser removido.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2579,9 +2619,9 @@ Permitir o cadastro e gerenciamento dos centros de custos utilizados pela opera�
 
 ### 📜 Regras de Negócio
 
-- RN015: Centros de custos utilizados em lançamentos financeiros não podem ser excluídos fisicamente.
-- RN016: Apenas centros de custos ativos podem ser utilizados em novos lançamentos.
-- RN017: Toda alteração deve permanecer registrada para auditoria.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -2636,9 +2676,9 @@ Permitir a emissão de documentos fiscais eletrônicos para pedidos elegíveis.
 
 ### 📜 Regras de Negócio
 
-- RN001: Apenas pedidos aptos podem gerar nota fiscal.
-- RN002: Toda emissão deve permanecer registrada para auditoria.
-- RN003: O XML autorizado deve ser armazenado.
+- RN033 — Um pedido somente poderá ser criado quando atender às regras comerciais da plataforma.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2684,8 +2724,9 @@ Permitir o cancelamento de uma nota fiscal emitida.
 
 ### 📜 Regras de Negócio
 
-- RN004: Todo cancelamento deve possuir justificativa.
-- RN005: O histórico fiscal nunca deve ser removido.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN037 — Cancelamentos e estornos devem permanecer rastreáveis.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
 
 ---
 
@@ -2727,8 +2768,8 @@ Permitir a consulta do status de documentos fiscais emitidos.
 
 ### 📜 Regras de Negócio
 
-- RN006: Consultas devem preservar a integridade dos registros fiscais.
-- RN007: Apenas usuários autorizados podem acessar informações fiscais.
+- RN049 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN050 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -2771,8 +2812,9 @@ Permitir que um pedido seja liberado para o processo logístico após validaçã
 
 ### 📜 Regras de Negócio
 
-- RN008: Apenas pedidos fiscalmente regularizados podem seguir para expedição.
-- RN009: Toda liberação deve permanecer registrada.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2819,8 +2861,8 @@ Permitir o cálculo das opções de entrega disponíveis para um pedido.
 
 ### 📜 Regras de Negócio
 
-- RN010: O cálculo deve considerar peso, dimensões e endereço de destino.
-- RN011: Apenas modalidades disponíveis devem ser apresentadas.
+- RN022 — O carrinho deve ser revalidado antes da conclusão da compra.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
 
 ---
 
@@ -2859,8 +2901,9 @@ Gerar a etiqueta de envio para um pedido.
 
 ### 📜 Regras de Negócio
 
-- RN012: Cada pedido deve possuir apenas uma etiqueta ativa por envio.
-- RN013: O identificador da etiqueta deve ser único.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN040 — A confirmação do pedido depende da validação final das regras comerciais.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2899,8 +2942,9 @@ Manter sincronizado o status logístico dos pedidos.
 
 ### 📜 Regras de Negócio
 
-- RN014: Todo histórico de movimentação deve ser preservado.
-- RN015: As atualizações devem ser cronológicas.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2940,8 +2984,9 @@ Registrar a conclusão do processo de entrega de um pedido.
 
 ### 📜 Regras de Negócio
 
-- RN016: O registro de entrega deve ser imutável após confirmação.
-- RN017: O histórico logístico deve permanecer disponível para consulta e auditoria.
+- RN034 — O pedido deve seguir um fluxo de estados controlado.
+- RN039 — O pedido deve manter histórico de eventos relevantes.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -2984,8 +3029,10 @@ Permitir que o gestor acompanhe, em uma única interface, os principais indicado
 
 ### 📜 Regras de Negócio
 
-- RN001: Os indicadores devem refletir dados consistentes da operação.
-- RN002: O dashboard deve respeitar as permissões do usuário.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN123 — Dados operacionais e analíticos devem permanecer separados.
+- RN074 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN075 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -3022,8 +3069,11 @@ Permitir a consulta de relatórios relacionados às atividades comerciais da pla
 
 ### 📜 Regras de Negócio
 
-- RN003: Apenas dados autorizados devem ser exibidos.
-- RN004: Os filtros devem ser aplicados antes da geração do relatório.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN122 — A plataforma deve permitir análise por diferentes dimensões.
+- RN123 — Dados operacionais e analíticos devem permanecer separados.
+- RN074 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN075 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -3060,7 +3110,9 @@ Permitir o acompanhamento dos processos operacionais da plataforma.
 
 ### 📜 Regras de Negócio
 
-- RN005: O relatório deve utilizar dados atualizados da operação.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN122 — A plataforma deve permitir análise por diferentes dimensões.
+- RN123 — Dados operacionais e analíticos devem permanecer separados.
 
 ---
 
@@ -3097,8 +3149,11 @@ Permitir o acompanhamento dos principais indicadores financeiros do negócio.
 
 ### 📜 Regras de Negócio
 
-- RN006: Apenas usuários autorizados podem visualizar indicadores financeiros.
-- RN007: Os cálculos devem considerar apenas registros válidos.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN121 — Relatórios financeiros devem utilizar dados transacionais consolidados.
+- RN123 — Dados operacionais e analíticos devem permanecer separados.
+- RN074 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN075 — Usuários devem acessar apenas recursos autorizados.
 
 ---
 
@@ -3135,8 +3190,9 @@ Permitir o acompanhamento das métricas estratégicas da plataforma.
 
 ### 📜 Regras de Negócio
 
-- RN008: As métricas devem utilizar critérios padronizados.
-- RN009: Os cálculos devem permanecer consistentes entre consultas.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN122 — A plataforma deve permitir análise por diferentes dimensões.
+- RN123 — Dados operacionais e analíticos devem permanecer separados.
 
 ---
 
@@ -3173,7 +3229,9 @@ Permitir a comparação entre diferentes períodos para análise da evolução d
 
 ### 📜 Regras de Negócio
 
-- RN010: Os critérios de comparação devem ser equivalentes para ambos os períodos.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN122 — A plataforma deve permitir análise por diferentes dimensões.
+- RN124 — Relatórios devem preservar consistência histórica.
 
 ---
 
@@ -3210,8 +3268,9 @@ Permitir a identificação de padrões e tendências a partir dos dados históri
 
 ### 📜 Regras de Negócio
 
-- RN011: As análises devem utilizar dados consolidados e consistentes.
-- RN012: Projeções possuem caráter informativo e não garantem resultados futuros.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN123 — Dados operacionais e analíticos devem permanecer separados.
+- RN124 — Relatórios devem preservar consistência histórica.
 
 ---
 
@@ -3251,9 +3310,11 @@ Permitir a exportação dos relatórios gerados pela plataforma.
 
 ### 📜 Regras de Negócio
 
-- RN013: Apenas usuários autorizados podem exportar relatórios.
-- RN014: Os dados exportados devem respeitar as permissões de acesso do usuário.
-- RN015: O formato do arquivo deve seguir os padrões suportados pela plataforma.
+- RN074 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN075 — Usuários devem acessar apenas recursos autorizados.
+- RN120 — Indicadores devem possuir fonte de dados confiável.
+- RN121 — Relatórios financeiros devem utilizar dados transacionais consolidados.
+- RN124 — Relatórios devem preservar consistência histórica.
 
 ---
 
@@ -3298,9 +3359,11 @@ Permitir que o administrador configure as informações institucionais e operaci
 
 ### 📜 Regras de Negócio
 
-- RN001: As informações institucionais devem ser únicas por loja.
-- RN002: Apenas usuários autorizados podem realizar alterações.
-- RN003: As alterações devem ser registradas para auditoria.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN074 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN075 — Usuários devem acessar apenas recursos autorizados.
+- RN140 — A plataforma deve disponibilizar informações institucionais essenciais.
+- RN141 — O sistema deve permitir gerenciamento de páginas institucionais.
 
 ---
 
@@ -3340,9 +3403,10 @@ Permitir o gerenciamento dos meios de pagamento disponíveis para utilização p
 
 ### 📜 Regras de Negócio
 
-- RN004: Apenas meios de pagamento ativos devem ser disponibilizados aos clientes.
-- RN005: Credenciais sensíveis devem ser armazenadas de forma segura.
-- RN006: Alterações devem ser auditáveis.
+- RN063 — Cada loja deve possuir configurações independentes.
+- RN074 — O controle de acesso deve ser baseado em papéis e permissões.
+- RN075 — Usuários devem acessar apenas recursos autorizados.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -3381,8 +3445,9 @@ Permitir o gerenciamento das modalidades de entrega oferecidas pela loja.
 
 ### 📜 Regras de Negócio
 
-- RN007: Apenas métodos ativos podem ser utilizados no checkout.
-- RN008: As configurações devem respeitar a estratégia logística definida pela loja.
+- RN063 — Cada loja deve possuir configurações independentes.
+- RN062 — Apenas pedidos aptos podem iniciar o processo logístico.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
@@ -3423,9 +3488,9 @@ Permitir a configuração das integrações da plataforma com serviços externos
 
 ### 📜 Regras de Negócio
 
-- RN009: Credenciais devem ser armazenadas de forma criptografada.
-- RN010: O sistema deve permitir ativar ou desativar integrações sem afetar o núcleo da aplicação.
-- RN011: Alterações devem ser registradas em auditoria.
+- RN003 — Customizações não devem comprometer o núcleo da plataforma.
+- RN004 — Operações críticas devem possuir rastreabilidade.
+- RN063 — Cada loja deve possuir configurações independentes.
 
 ---
 
@@ -3463,9 +3528,11 @@ Permitir o gerenciamento das configurações de otimização para mecanismos de 
 
 ### 📜 Regras de Negócio
 
-- RN012: O sistema deve permitir configuração de metadados por página.
-- RN013: Deve suportar Open Graph, Twitter Cards e dados estruturados.
-- RN014: URLs devem ser amigáveis e únicas.
+- RN090 — As URLs devem ser legíveis, estáveis e descritivas.
+- RN091 — Produtos e categorias devem possuir URL canônica única.
+- RN093 — Produtos indexáveis devem possuir conteúdo suficiente.
+- RN096 — O sistema deve permitir controle de indexação.
+- RN097 — O sitemap deve refletir o conteúdo canônico relevante.
 
 ---
 
@@ -3509,9 +3576,10 @@ Permitir a personalização visual da loja virtual.
 
 ### 📜 Regras de Negócio
 
-- RN015: Apenas arquivos suportados podem ser utilizados.
-- RN016: A personalização não deve comprometer o funcionamento do núcleo da plataforma.
-- RN017: Toda alteração deve ser registrada para auditoria e possibilitar reversão quando aplicável.x
+- RN130 — Personalizações visuais não podem comprometer a operação da plataforma.
+- RN133 — Configuração deve ser priorizada em relação à duplicação de código.
+- RN135 — Configurações devem ser independentes por loja.
+- RN004 — Operações críticas devem possuir rastreabilidade.
 
 ---
 
