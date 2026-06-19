@@ -4,7 +4,7 @@ interface GridProps {
   children: ReactNode;
 }
 
-export function Grid({ children }: GridProps) {
+export default function Grid({ children }: GridProps) {
   return (
     <div
       className="
