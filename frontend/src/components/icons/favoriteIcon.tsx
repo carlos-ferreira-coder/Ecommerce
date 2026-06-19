@@ -5,7 +5,7 @@ interface FavoriteIconProps {
 }
 
 export default function FavoriteIcon({
-  fill = "var(--color-white)",
+  fill = "none",
   stroke = "var(--color-black)",
   strokeWidth = 2,
 }: FavoriteIconProps) {
