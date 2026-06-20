@@ -43,19 +43,29 @@ export default function MenuOverlay({ onClose }: MenuOverlayProps) {
                 {isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
               </button>
 
-              {isOpen && (
-                <div className="flex flex-col gap-8 my-8">
-                  {navigation.columns[0].items.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="h-8 pl-8 text-mobile-body-lg text-gray-800"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+              <div
+                className={`
+                  grid
+                  transition-[grid-template-rows]
+                  duration-300
+                  ease-in-out
+                  ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}
+                `}
+              >
+                <div className="overflow-hidden">
+                  <div className="flex flex-col gap-8 my-8">
+                    {navigation.columns[0].items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="h-8 pl-8 text-mobile-body-lg text-gray-800"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           );
         })}
