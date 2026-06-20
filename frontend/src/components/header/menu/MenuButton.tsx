@@ -23,7 +23,7 @@ export default function MenuButton({ className }: MenuButtonProps) {
         {isMenuOpen ? <CancelIcon /> : <MenuIcon />}
       </button>
 
-      {isMenuOpen && <MenuOverlay />}
+      {isMenuOpen && <MenuOverlay onClose={() => setIsMenuOpen(false)} />}
     </>
   );
 }

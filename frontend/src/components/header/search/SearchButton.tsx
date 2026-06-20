@@ -23,7 +23,7 @@ export default function SearchButton({ className }: SearchButtonProps) {
         {isSearchOpen ? <CancelIcon /> : <SearchIcon />}
       </button>
 
-      {isSearchOpen && <SearchOverlay />}
+      {isSearchOpen && <SearchOverlay onClose={() => setIsSearchOpen(false)} />}
     </>
   );
 }

@@ -8,7 +8,11 @@ import ProfileIcon from "@/components/icons/profileIcon";
 import OverlayHeader from "@/components/header/overlayHeader";
 import { navigationHeader } from "@/components/header/navigationHeader";
 
-export default function MenuOverlay() {
+interface MenuOverlayProps {
+  onClose: () => void;
+}
+
+export default function MenuOverlay({ onClose }: MenuOverlayProps) {
   const [openMenus, setOpenMenus] = useState<string[]>([]);
 
   const toggleMenu = (menu: string) => {
@@ -20,7 +24,7 @@ export default function MenuOverlay() {
   };
 
   return (
-    <OverlayHeader>
+    <OverlayHeader onClose={onClose}>
       <div className="flex flex-col gap-8 my-8">
         {navigationHeader.map((navigation) => {
           const isOpen = openMenus.includes(navigation.title);
