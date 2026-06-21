@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import ArrowDownIcon from "@/components/icons/arrowDownIcon";
-import ArrowUpIcon from "@/components/icons/arrowUpIcon";
 import ProfileIcon from "@/components/icons/profileIcon";
 import OverlayHeader from "@/components/header/overlayHeader";
 import { navigationHeader } from "@/components/header/navigationHeader";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface MenuOverlayProps {
   onClose: () => void;
@@ -40,38 +40,59 @@ export default function MenuOverlay({ onClose }: MenuOverlayProps) {
                   {navigation.title}
                 </div>
 
-                {isOpen ? <ArrowUpIcon /> : <ArrowDownIcon />}
+                <motion.div
+                  animate={{
+                    rotate: isOpen ? 180 : 0,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                  }}
+                >
+                  <ArrowDownIcon />
+                </motion.div>
               </button>
 
-              <div
-                className={`
-                  grid
-                  transition-[grid-template-rows]
-                  duration-300
-                  ease-in-out
-                  ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}
-                `}
-              >
-                <div className="overflow-hidden">
-                  <div className="flex flex-col gap-8 my-8">
-                    {navigation.columns[0].items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="h-8 pl-8 text-mobile-body-lg text-gray-800"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{
+                      height: 0,
+                      opacity: 0,
+                    }}
+                    animate={{
+                      height: "auto",
+                      opacity: 1,
+                    }}
+                    exit={{
+                      height: 0,
+                      opacity: 0,
+                    }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
+                    className="overflow-hidden"
+                  >
+                    <div className="flex flex-col gap-6 my-6">
+                      {navigation.columns[0].items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="flex items-center h-8 pl-8 text-mobile-body-lg text-gray-800"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           );
         })}
       </div>
 
-      <div className="flex justify-between gap-4 py-8 border-t border-gray-400">
+      <div className="flex justify-between gap-4 py-4 border-t border-gray-400">
         <Link
           href="/login"
           className="flex items-center justify-center gap-1 h-10 w-full text-button-sm text-primary-600 border border-primary-600"
