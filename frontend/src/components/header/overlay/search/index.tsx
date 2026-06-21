@@ -4,32 +4,19 @@ import SearchIcon from "@/components/icons/searchIcon";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 
-interface SearchWrapperOverlayHeaderProps {
-  isOpen: boolean;
-  setIsOpen: () => void;
-}
-
-export default function SearchWrapperOverlayHeader({
-  isOpen,
-  setIsOpen,
-}: SearchWrapperOverlayHeaderProps) {
+export default function SearchWrapperOverlayHeader() {
   return (
     <ButtonOverlay
       icon={<SearchIcon />}
-      isOpen={isOpen}
-      setIsOpen={setIsOpen}
+      overlayType={"search"}
       OverlayComponent={SearchOverlayHeader}
     />
   );
 }
 
-interface SearchOverlayHeaderProps {
-  onClose: () => void;
-}
-
-export function SearchOverlayHeader({ onClose }: SearchOverlayHeaderProps) {
+export function SearchOverlayHeader() {
   return (
-    <OverlayHeader onClose={onClose}>
+    <OverlayHeader>
       <div className="flex h-22 lg:h-38 items-center">
         <div className="flex items-center gap-2 w-full h-10 lg:h-14 px-4 border-b border-gray-500">
           <SearchIcon fill="var(--color-gray-500)" />

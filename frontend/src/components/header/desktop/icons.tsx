@@ -1,36 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 import ProfileIcon from "@/components/icons/profileIcon";
 import FavoriteIcon from "@/components/icons/favoriteIcon";
-import ShoppingBagIcon from "@/components/icons/shoppingBagIcon";
 import SearchOverlay from "@/components/header/overlay/search/index";
-
-type openOverlayType = "search" | null;
+import ShoppingBagOverlay from "@/components/header/overlay/shoppingBag/index";
 
 export default function IconsDesktopHeader() {
-  const [openOverlay, setOpenOverlay] = useState<openOverlayType>(null);
-
-  function onToggle(overlay: openOverlayType) {
-    setOpenOverlay((prev) => (prev === overlay ? null : overlay));
-  }
+  const pathname = usePathname();
 
   return (
     <div className="flex items-center justify-center col-span-2 gap-6">
-      <SearchOverlay
-        isOpen={openOverlay === "search"}
-        setIsOpen={() => onToggle("search")}
-      />
+      <SearchOverlay />
       <Link href="/profile">
-        <ProfileIcon />
+        <ProfileIcon active={pathname.startsWith("/profile")} />
       </Link>
-      <Link href="/favorites">
-        <FavoriteIcon />
+      <Link href="/favorite">
+        <FavoriteIcon active={pathname.startsWith("/favorite")} />
       </Link>
-      <Link href="/cart">
-        <ShoppingBagIcon />
-      </Link>
+      <ShoppingBagOverlay />
     </div>
   );
 }

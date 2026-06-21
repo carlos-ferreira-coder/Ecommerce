@@ -1,10 +1,34 @@
 interface ShoppingBagIconProps {
   fill?: string;
+  quantity?: number;
 }
 
 export default function ShoppingBagIcon({
   fill = "var(--color-black)",
+  quantity = 0,
 }: ShoppingBagIconProps) {
+  if (quantity > 0) {
+    return (
+      <div className="relative">
+        <Icon fill={fill} />
+        <div
+          style={{ color: fill }}
+          className="absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-caption-sm leading-[180%] tracking-normal"
+        >
+          {quantity > 99 ? "99+" : quantity}
+        </div>
+      </div>
+    );
+  }
+
+  return <Icon fill={fill} />;
+}
+
+interface IconProps {
+  fill: string;
+}
+
+function Icon({ fill }: IconProps) {
   return (
     <svg
       width="24"

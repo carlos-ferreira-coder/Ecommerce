@@ -1,15 +1,15 @@
+"use client";
+
 import Container from "@/components/ui/container";
 import { motion } from "framer-motion";
-
+import { useHeaderOverlayStore } from "@/store/headerOverlay";
 interface OverlayHeaderProps {
-  onClose: () => void;
   children: React.ReactNode;
 }
 
-export default function OverlayHeader({
-  onClose,
-  children,
-}: OverlayHeaderProps) {
+export default function OverlayHeader({ children }: OverlayHeaderProps) {
+  const { closeHeaderOverlay } = useHeaderOverlayStore();
+
   return (
     <>
       <motion.div
@@ -31,7 +31,7 @@ export default function OverlayHeader({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        onClick={onClose}
+        onClick={() => closeHeaderOverlay()}
         className="fixed inset-0 top-16 lg:top-27.5 z-40 bg-black/20 backdrop-blur-sm"
       />
     </>
