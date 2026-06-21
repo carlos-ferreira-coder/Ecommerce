@@ -1,17 +1,28 @@
-import SearchIcon from "@/components/icons/searchIcon";
-import OverlayHeader from "@/components/header/overlayHeader";
+"use client";
 
-interface SearchOverlayProps {
+import SearchIcon from "@/components/icons/searchIcon";
+import ButtonOverlay from "@/components/header/overlay/button";
+import OverlayHeader from "@/components/header/overlay/index";
+
+export default function SearchWrapperOverlayHeader() {
+  return (
+    <ButtonOverlay
+      icon={<SearchIcon />}
+      OverlayComponent={SearchOverlayHeader}
+    />
+  );
+}
+
+interface SearchOverlayHeaderProps {
   onClose: () => void;
 }
 
-export default function SearchOverlay({ onClose }: SearchOverlayProps) {
+export function SearchOverlayHeader({ onClose }: SearchOverlayHeaderProps) {
   return (
     <OverlayHeader onClose={onClose}>
       <div className="flex h-22 lg:h-38 items-center">
         <div className="flex items-center gap-2 w-full h-10 lg:h-14 px-4 border-b border-gray-500">
           <SearchIcon fill="var(--color-gray-500)" />
-          {/* TODO desenvolver o pesquisar */}
           <input
             autoFocus
             type="text"

@@ -1,4 +1,4 @@
-type navigationHeaderType = {
+type NavigationHeaderType = {
   title: string;
   href: string;
   columns: {
@@ -15,7 +15,7 @@ type navigationHeaderType = {
   }[];
 }[];
 
-export const navigationHeader: navigationHeaderType = [
+export const navigationHeader: NavigationHeaderType = [
   {
     title: "Collection",
     href: "/collection",
