@@ -8,9 +8,22 @@ import { navigationHeader } from "@/components/header/navigation";
 import HamburgerMenu from "@/components/header/overlay/menu/hamburger";
 import AuthMenu from "@/components/header/overlay/menu/auth";
 
-export default function MenuWrapperOverlayHeader() {
+interface MenuWrapperOverlayHeaderProps {
+  isOpen: boolean;
+  setIsOpen: () => void;
+}
+
+export default function MenuWrapperOverlayHeader({
+  isOpen,
+  setIsOpen,
+}: MenuWrapperOverlayHeaderProps) {
   return (
-    <ButtonOverlay icon={<MenuIcon />} OverlayComponent={MenuOverlayHeader} />
+    <ButtonOverlay
+      icon={<MenuIcon />}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      OverlayComponent={MenuOverlayHeader}
+    />
   );
 }
 

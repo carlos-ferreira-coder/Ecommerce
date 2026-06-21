@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import CancelIcon from "@/components/icons/cancelIcon";
 
 interface ButtonOverlayHeaderProps {
   icon: React.ReactNode;
+  isOpen: boolean;
+  setIsOpen: () => void;
   OverlayComponent: React.ComponentType<{
     onClose: () => void;
   }>;
@@ -13,17 +14,17 @@ interface ButtonOverlayHeaderProps {
 
 export default function ButtonOverlayHeader({
   icon,
+  isOpen,
+  setIsOpen,
   OverlayComponent,
 }: ButtonOverlayHeaderProps) {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
   return (
     <>
       <button
         type="button"
         className="cursor-pointer"
         aria-label={isOpen ? "Fechar" : "Abrir"}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={setIsOpen} //() => setIsOpen((prev) => !prev)
       >
         <AnimatePresence mode="wait" initial={false}>
           {isOpen ? (
@@ -51,7 +52,10 @@ export default function ButtonOverlayHeader({
       </button>
 
       <AnimatePresence initial={false}>
-        {isOpen && <OverlayComponent onClose={() => setIsOpen(false)} />}
+        {
+          isOpen && <OverlayComponent onClose={setIsOpen} />
+          //() => setIsOpen(false)
+        }
       </AnimatePresence>
     </>
   );

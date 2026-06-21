@@ -4,10 +4,20 @@ import SearchIcon from "@/components/icons/searchIcon";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 
-export default function SearchWrapperOverlayHeader() {
+interface SearchWrapperOverlayHeaderProps {
+  isOpen: boolean;
+  setIsOpen: () => void;
+}
+
+export default function SearchWrapperOverlayHeader({
+  isOpen,
+  setIsOpen,
+}: SearchWrapperOverlayHeaderProps) {
   return (
     <ButtonOverlay
       icon={<SearchIcon />}
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
       OverlayComponent={SearchOverlayHeader}
     />
   );
