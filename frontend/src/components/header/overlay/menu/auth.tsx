@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ProfileIcon from "@/components/icons/profileIcon";
 
-export default function ButtonAuth() {
+export default function AuthMenuOverlayHeader() {
   return (
     <div className="flex justify-between gap-4 py-4 border-t border-gray-400">
       <Link

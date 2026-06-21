@@ -9,7 +9,7 @@ interface MenuAccordionProps {
   onToggle: () => void;
 }
 
-export default function MenuAccordion({
+export default function HamburgerMenuOverlayHeader({
   navigation,
   isOpen,
   onToggle,

@@ -5,8 +5,8 @@ import MenuIcon from "@/components/icons/menuIcon";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 import { navigationHeader } from "@/components/header/navigation";
-import MenuAccordion from "@/components/header/overlay/menu/menuAccordion";
-import AuthButtons from "@/components/header/overlay/menu/authButtons";
+import HamburgerMenu from "@/components/header/overlay/menu/hamburger";
+import AuthMenu from "@/components/header/overlay/menu/auth";
 
 export default function MenuWrapperOverlayHeader() {
   return (
@@ -33,7 +33,7 @@ export function MenuOverlayHeader({ onClose }: MenuOverlayHeaderProps) {
     <OverlayHeader onClose={onClose}>
       <div className="flex flex-col gap-8 my-8">
         {navigationHeader.map((navigation) => (
-          <MenuAccordion
+          <HamburgerMenu
             key={navigation.title}
             navigation={navigation}
             isOpen={openMenus.includes(navigation.title)}
@@ -42,7 +42,7 @@ export function MenuOverlayHeader({ onClose }: MenuOverlayHeaderProps) {
         ))}
       </div>
 
-      <AuthButtons />
+      <AuthMenu />
     </OverlayHeader>
   );
 }
