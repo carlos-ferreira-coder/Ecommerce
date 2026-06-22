@@ -15,7 +15,7 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "flex items-center justify-center h-10 lg:h-12 px-6 gap-1 text-button-sm lg:text-button-lg transition-all duration-200 shadow-md active:shadow-sm active:translate-y-0.5 lg:hover:-translate-y-0.5 lg:active:translate-y-0",
+        "flex items-center justify-center h-10 lg:h-12 px-6 gap-1 text-button-sm lg:text-button-lg cursor-pointer transition-all duration-200 shadow-md active:shadow-sm active:translate-y-0.5 lg:hover:-translate-y-0.5 lg:active:translate-y-0",
         {
           // Fill
           "bg-primary-600 active:bg-primary-750 text-white hover:bg-primary-700":
