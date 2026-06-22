@@ -7,7 +7,10 @@ export default function NavigationDesktopHeader() {
       <ul className="flex items-center gap-8">
         {navigationHeader.map((item) => (
           <li key={item.title}>
-            <Link href={item.href} className="text-body-lg text-gray-800">
+            <Link
+              href={item.href}
+              className="text-body-lg text-gray-800 hover:text-black"
+            >
               {item.title}
             </Link>
           </li>
