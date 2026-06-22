@@ -19,7 +19,7 @@ export default function HamburgerMenuOverlayHeader({
       <button
         type="button"
         onClick={onToggle}
-        className="flex items-center justify-between w-full"
+        className="flex items-center justify-between w-full cursor-pointer"
       >
         <div className="text-mobile-body-lg text-black">{navigation.title}</div>
 
