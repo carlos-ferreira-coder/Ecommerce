@@ -1,34 +1,39 @@
+import clsx from "clsx";
+
 interface ShoppingBagIconProps {
-  fill?: string;
   quantity?: number;
+  className?: string;
 }
 
 export default function ShoppingBagIcon({
-  fill = "var(--color-black)",
   quantity = 0,
+  className = "text-black",
 }: ShoppingBagIconProps) {
-  if (quantity > 0) {
-    return (
-      <div className="relative">
-        <Icon fill={fill} />
-        <div
-          style={{ color: fill }}
-          className="absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-caption-sm leading-[180%] tracking-normal"
-        >
-          {quantity > 99 ? "99+" : quantity}
-        </div>
-      </div>
-    );
-  }
+  const badge = quantity > 99 ? "99+" : quantity;
 
-  return <Icon fill={fill} />;
+  return (
+    <div className="relative">
+      <Icon className={className} />
+
+      {quantity > 0 && (
+        <div
+          className={clsx(
+            "absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-caption-sm leading-[180%] tracking-normal",
+            className,
+          )}
+        >
+          {badge}
+        </div>
+      )}
+    </div>
+  );
 }
 
 interface IconProps {
-  fill: string;
+  className: string;
 }
 
-function Icon({ fill }: IconProps) {
+function Icon({ className }: IconProps) {
   return (
     <svg
       width="24"
@@ -36,10 +41,11 @@ function Icon({ fill }: IconProps) {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M18 6H16C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6H6C4.9 6 4 6.9 4 8V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8C20 6.9 19.1 6 18 6ZM12 4C13.1 4 14 4.9 14 6H10C10 4.9 10.9 4 12 4ZM18 20H6V8H8V10C8 10.55 8.45 11 9 11C9.55 11 10 10.55 10 10V8H14V10C14 10.55 14.45 11 15 11C15.55 11 16 10.55 16 10V8H18V20Z"
-        fill={fill}
+        fill="currentColor"
       />
     </svg>
   );

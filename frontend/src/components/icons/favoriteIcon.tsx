@@ -1,13 +1,11 @@
 interface FavoriteIconProps {
-  fill?: string;
-  stroke?: string;
   active?: boolean;
+  className?: string;
 }
 
 export default function FavoriteIcon({
-  fill = "none",
-  stroke = "var(--color-black)",
   active = false,
+  className = "text-black",
 }: FavoriteIconProps) {
   return (
     <svg
@@ -16,12 +14,13 @@ export default function FavoriteIcon({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path
         d="M16.5 3.82422C19.0277 3.82422 21 5.7965 21 8.32422C21 9.88575 20.3066 11.3809 18.8818 13.124C17.4459 14.8807 15.3736 16.7645 12.7793 19.1221L12.002 19.8232L11.2236 19.1143L11.2217 19.1133C8.62662 16.7601 6.55418 14.8777 5.11816 13.1221C3.69361 11.3804 3 9.88574 3 8.32422C3 5.7965 4.97228 3.82422 7.5 3.82422C8.93712 3.82422 10.3319 4.49822 11.2383 5.5625L12 6.45703L12.7617 5.5625C13.6681 4.49822 15.0629 3.82422 16.5 3.82422Z"
-        fill={active ? "var(--color-error)" : fill}
-        stroke={stroke}
-        strokeWidth="2"
+        fill={active ? "var(--color-error)" : "var(--color-white)"}
+        stroke={active ? "var(--color-error)" : "currentColor"}
+        strokeWidth={2}
       />
     </svg>
   );

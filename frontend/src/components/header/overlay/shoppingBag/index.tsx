@@ -4,7 +4,7 @@ import ShoppingBagIcon from "@/components/icons/shoppingBagIcon";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 import Button from "@/components/button";
-import MenuIcon from "@/components/icons/menuIcon copy";
+import MenuIcon from "@/components/icons/menuIcon";
 
 export default function ShoppingBagWrapperOverlayHeader() {
   return (
