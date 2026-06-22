@@ -24,6 +24,18 @@ export function ShoppingBagOverlayHeader() {
         <Button variant="stroke">test</Button>
         <Button variant="text">test</Button>
       </div>
+
+      <div className="flex items-center justify-center h-20 gap-2">
+        <Button variant="fill" disabled>
+          test
+        </Button>
+        <Button variant="stroke" disabled>
+          test
+        </Button>
+        <Button variant="text" disabled>
+          test
+        </Button>
+      </div>
     </OverlayHeader>
   );
 }
