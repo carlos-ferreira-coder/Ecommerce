@@ -51,6 +51,7 @@ export function SearchOverlayHeader() {
 
           <motion.button
             type="button"
+            className="cursor-pointer"
             onClick={() => setSearch("")}
             initial={false}
             animate={{
