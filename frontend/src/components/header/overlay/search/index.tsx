@@ -6,6 +6,7 @@ import SearchIcon from "@/components/icons/searchIcon";
 import CancelIcon from "@/components/icons/cancelIcon";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
+import clsx from "clsx";
 
 export default function SearchWrapperOverlayHeader() {
   return (
@@ -19,12 +20,22 @@ export default function SearchWrapperOverlayHeader() {
 
 export function SearchOverlayHeader() {
   const [search, setSearch] = useState<string>("");
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <OverlayHeader>
       <div className="flex h-22 lg:h-38 items-center">
-        <div className="flex items-center gap-2 w-full h-10 lg:h-14 px-4 border-b border-gray-500 focus-within:border-primary-500">
-          <SearchIcon fill="var(--color-gray-500)" />
+        <div
+          className={clsx(
+            "group flex items-center gap-2 w-full h-10 lg:h-14 px-4 border-b",
+            isFocused ? "border-primary-500" : "border-gray-500",
+          )}
+        >
+          <SearchIcon
+            fill={
+              isFocused ? "var(--color-primary-500)" : "var(--color-gray-500)"
+            }
+          />
 
           <input
             autoFocus
@@ -33,12 +44,13 @@ export function SearchOverlayHeader() {
             placeholder="Pesquisar"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            className="flex-1 outline-none bg-transparent text-gray-500 text-mobile-body-sm lg:text-body-xl"
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            className="flex-1 outline-none bg-transparent text-gray-500 focus:text-primary-500 text-mobile-body-sm lg:text-body-xl"
           />
 
           <motion.button
             type="button"
-            aria-label="Limpar"
             onClick={() => setSearch("")}
             initial={false}
             animate={{
@@ -47,7 +59,11 @@ export function SearchOverlayHeader() {
             }}
             transition={{ duration: 0.2 }}
           >
-            <CancelIcon fill="var(--color-gray-500)" />
+            <CancelIcon
+              fill={
+                isFocused ? "var(--color-primary-500)" : "var(--color-gray-500)"
+              }
+            />
           </motion.button>
         </div>
       </div>
