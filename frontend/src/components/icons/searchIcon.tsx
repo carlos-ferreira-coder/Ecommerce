@@ -2,9 +2,7 @@ interface SearchIconProps {
   className?: string;
 }
 
-export default function SearchIcon({
-  className = "text-black",
-}: SearchIconProps) {
+export default function SearchIcon({ className }: SearchIconProps) {
   return (
     <svg
       width="24"

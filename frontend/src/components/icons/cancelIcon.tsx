@@ -2,9 +2,7 @@ interface CancelIconProps {
   className?: string;
 }
 
-export default function CancelIcon({
-  className = "text-black",
-}: CancelIconProps) {
+export default function CancelIcon({ className }: CancelIconProps) {
   return (
     <svg
       width="24"

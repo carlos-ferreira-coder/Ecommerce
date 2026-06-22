@@ -2,9 +2,7 @@ interface ArrowDownIconProps {
   className?: string;
 }
 
-export default function ArrowDownIcon({
-  className = "text-black",
-}: ArrowDownIconProps) {
+export default function ArrowDownIcon({ className }: ArrowDownIconProps) {
   return (
     <svg
       width="24"

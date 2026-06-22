@@ -7,7 +7,7 @@ export default function AuthMenuOverlayHeader() {
     <div className="flex justify-between gap-4 py-4 border-t border-gray-400">
       <Link href="/profile/login" className="w-full">
         <Button variant="stroke" className="w-full">
-          <ProfileIcon fill="var(--color-primary-600)" />
+          <ProfileIcon />
           Login
         </Button>
       </Link>

@@ -3,10 +3,7 @@ interface ProfileIconProps {
   className?: string;
 }
 
-export default function ProfileIcon({
-  active = false,
-  className = "text-black",
-}: ProfileIconProps) {
+export default function ProfileIcon({ active, className }: ProfileIconProps) {
   return (
     <svg
       width="24"

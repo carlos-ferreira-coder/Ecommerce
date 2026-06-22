@@ -1,12 +1,12 @@
 "use client";
 
+import clsx from "clsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import SearchIcon from "@/components/icons/searchIcon";
 import CancelIcon from "@/components/icons/cancelIcon";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
-import clsx from "clsx";
 
 export default function SearchWrapperOverlayHeader() {
   return (
@@ -28,14 +28,12 @@ export function SearchOverlayHeader() {
         <div
           className={clsx(
             "group flex items-center gap-2 w-full h-10 lg:h-14 px-4 border-b",
-            isFocused ? "border-primary-500" : "border-gray-500",
+            isFocused
+              ? "border-primary-500 text-primary-500"
+              : "border-gray-500 text-gray-500",
           )}
         >
-          <SearchIcon
-            fill={
-              isFocused ? "var(--color-primary-500)" : "var(--color-gray-500)"
-            }
-          />
+          <SearchIcon />
 
           <input
             autoFocus
@@ -46,7 +44,7 @@ export function SearchOverlayHeader() {
             onChange={(event) => setSearch(event.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className="flex-1 outline-none bg-transparent text-gray-500 focus:text-primary-500 text-mobile-body-sm lg:text-body-xl"
+            className="flex-1 outline-none bg-transparent text-mobile-body-sm lg:text-body-xl"
           />
 
           <motion.button
@@ -60,11 +58,7 @@ export function SearchOverlayHeader() {
             }}
             transition={{ duration: 0.2 }}
           >
-            <CancelIcon
-              fill={
-                isFocused ? "var(--color-primary-500)" : "var(--color-gray-500)"
-              }
-            />
+            <CancelIcon />
           </motion.button>
         </div>
       </div>

@@ -6,16 +6,20 @@ interface ShoppingBagIconProps {
 }
 
 export default function ShoppingBagIcon({
-  quantity = 0,
-  className = "text-black",
+  quantity,
+  className,
 }: ShoppingBagIconProps) {
-  const badge = quantity > 99 ? "99+" : quantity;
+  let badge: string | undefined;
+
+  if (quantity && quantity > 0) {
+    badge = quantity > 99 ? "99+" : quantity.toString();
+  }
 
   return (
     <div className="relative">
       <Icon className={className} />
 
-      {quantity > 0 && (
+      {badge && (
         <div
           className={clsx(
             "absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-caption-sm leading-[180%] tracking-normal",
@@ -30,7 +34,7 @@ export default function ShoppingBagIcon({
 }
 
 interface IconProps {
-  className: string;
+  className?: string;
 }
 
 function Icon({ className }: IconProps) {

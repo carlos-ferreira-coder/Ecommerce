@@ -2,9 +2,7 @@ interface ArrowUpIconProps {
   className?: string;
 }
 
-export default function ArrowUpIcon({
-  className = "text-black",
-}: ArrowUpIconProps) {
+export default function ArrowUpIcon({ className }: ArrowUpIconProps) {
   return (
     <svg
       width="24"

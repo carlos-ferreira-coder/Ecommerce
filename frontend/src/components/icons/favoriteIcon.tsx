@@ -3,10 +3,7 @@ interface FavoriteIconProps {
   className?: string;
 }
 
-export default function FavoriteIcon({
-  active = false,
-  className = "text-black",
-}: FavoriteIconProps) {
+export default function FavoriteIcon({ active, className }: FavoriteIconProps) {
   return (
     <svg
       width="24"
