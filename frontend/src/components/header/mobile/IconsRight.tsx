@@ -11,7 +11,10 @@ export default function IconsLeftMobileHeader() {
   return (
     <div className="flex items-center justify-end gap-2">
       <Link href="/favorite">
-        <FavoriteIcon active={pathname.startsWith("/favorite")} />
+        <FavoriteIcon
+          active={pathname.startsWith("/favorite")}
+          className="hover:bg-gray-200"
+        />
       </Link>
       <ShoppingBagOverlay />
     </div>

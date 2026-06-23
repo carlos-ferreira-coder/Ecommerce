@@ -14,10 +14,16 @@ export default function IconsDesktopHeader() {
     <div className="flex items-center justify-center col-span-2 gap-6">
       <SearchOverlay />
       <Link href="/profile">
-        <ProfileIcon active={pathname.startsWith("/profile")} />
+        <ProfileIcon
+          active={pathname.startsWith("/profile")}
+          className="hover:bg-gray-200"
+        />
       </Link>
       <Link href="/favorite">
-        <FavoriteIcon active={pathname.startsWith("/favorite")} />
+        <FavoriteIcon
+          active={pathname.startsWith("/favorite")}
+          className="hover:bg-gray-200"
+        />
       </Link>
       <ShoppingBagOverlay />
     </div>

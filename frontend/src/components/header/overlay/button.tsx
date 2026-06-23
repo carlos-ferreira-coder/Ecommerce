@@ -9,7 +9,9 @@ import CancelIcon from "@/components/icons/cancelIcon";
 import { ComponentType } from "react";
 
 interface ButtonOverlayHeaderProps {
-  Icon: ComponentType | ComponentType<{ quantity?: number }>;
+  Icon:
+    | ComponentType<{ className?: string }>
+    | ComponentType<{ className?: string; quantity?: number }>;
   overlayType: HeaderOverlayType;
   OverlayComponent: React.ComponentType;
   showCloseIcon?: boolean;
@@ -53,7 +55,11 @@ export default function ButtonOverlayHeader({
               exit={{ scale: 0, opacity: 0 }}
               transition={{ duration: 0.1 }}
             >
-              {quantity ? <Icon quantity={quantity} /> : <Icon />}
+              {quantity ? (
+                <Icon className="hover:bg-gray-200" quantity={quantity} />
+              ) : (
+                <Icon className="hover:bg-gray-200" />
+              )}
             </motion.div>
           )}
         </AnimatePresence>
