@@ -11,7 +11,7 @@ import AuthMenu from "@/components/header/overlay/menu/auth";
 export default function MenuWrapperOverlayHeader() {
   return (
     <ButtonOverlay
-      icon={<MenuIcon />}
+      Icon={MenuIcon}
       overlayType={"menu"}
       OverlayComponent={MenuOverlayHeader}
     />

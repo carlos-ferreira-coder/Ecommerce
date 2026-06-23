@@ -3,8 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { ComponentProps } from "react";
 
 const styles = {
-  default:
-    "flex items-center justify-center h-10 lg:h-12 px-6 gap-1 text-button-sm lg:text-button-lg shadow-md",
+  base: "flex items-center justify-center h-10 lg:h-12 px-6 gap-1 text-button-sm lg:text-button-lg shadow-md",
   interactive:
     "cursor-pointer transition-all duration-200 active:shadow-sm active:translate-y-0.5 lg:hover:-translate-y-0.5 lg:active:translate-y-0",
   light: {
@@ -41,7 +40,7 @@ export default function Button({
       disabled={disabled}
       className={twMerge(
         clsx(
-          styles["default"],
+          styles["base"],
           !disabled && styles["interactive"],
           disabled ? styles[background].disabled : styles[background][variant],
           className,

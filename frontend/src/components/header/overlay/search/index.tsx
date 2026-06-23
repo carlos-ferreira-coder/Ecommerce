@@ -11,7 +11,7 @@ import OverlayHeader from "@/components/header/overlay/index";
 export default function SearchWrapperOverlayHeader() {
   return (
     <ButtonOverlay
-      icon={<SearchIcon />}
+      Icon={SearchIcon}
       overlayType={"search"}
       OverlayComponent={SearchOverlayHeader}
     />

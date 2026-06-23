@@ -6,19 +6,22 @@ import {
   useHeaderOverlayStore,
 } from "@/store/headerOverlay";
 import CancelIcon from "@/components/icons/cancelIcon";
+import { ComponentType } from "react";
 
 interface ButtonOverlayHeaderProps {
-  icon: React.ReactNode;
+  Icon: ComponentType | ComponentType<{ quantity?: number }>;
   overlayType: HeaderOverlayType;
   OverlayComponent: React.ComponentType;
   showCloseIcon?: boolean;
+  quantity?: number;
 }
 
 export default function ButtonOverlayHeader({
-  icon,
+  Icon,
   overlayType,
   OverlayComponent,
   showCloseIcon = true,
+  quantity,
 }: ButtonOverlayHeaderProps) {
   const { headerOverlay, toggleHeaderOverlay } = useHeaderOverlayStore();
   const isOpen = headerOverlay === overlayType;
@@ -50,7 +53,7 @@ export default function ButtonOverlayHeader({
               exit={{ scale: 0, opacity: 0 }}
               transition={{ duration: 0.1 }}
             >
-              {icon}
+              {quantity ? <Icon quantity={quantity} /> : <Icon />}
             </motion.div>
           )}
         </AnimatePresence>
