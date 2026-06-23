@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { navigationHeader } from "@/components/header/navigation";
 import MenuIcon from "@/components/icons/menuIcon";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
-import { navigationHeader } from "@/components/header/navigation";
 import Hamburger from "@/components/header/overlay/menu/hamburger";
 import AuthMenu from "@/components/header/overlay/menu/auth";
 
@@ -42,7 +42,7 @@ export function MenuOverlayHeader() {
         ))}
       </nav>
 
-      <AuthMenu />
+      <AuthMenu isLogged />
     </OverlayHeader>
   );
 }
