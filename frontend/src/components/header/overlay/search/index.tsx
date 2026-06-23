@@ -3,8 +3,8 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import SearchIcon from "@/components/icons/searchIcon";
-import CancelIcon from "@/components/icons/cancelIcon";
+import SearchIcon from "@/components/icons/search";
+import CancelIcon from "@/components/icons/cancel";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 

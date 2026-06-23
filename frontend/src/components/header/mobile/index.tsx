@@ -1,8 +1,8 @@
 import Container from "@/components/ui/container";
 import Grid from "@/components/ui/grid";
 import Logo from "@/components/header/mobile/logo";
-import IconsLeft from "@/components/header/mobile/IconsLeft";
-import IconsRight from "@/components/header/mobile/IconsRight";
+import IconsLeft from "@/components/header/mobile/icons-left";
+import IconsRight from "@/components/header/mobile/icons-right";
 
 export default function MobileHeader() {
   return (

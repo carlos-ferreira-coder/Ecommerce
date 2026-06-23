@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import FavoriteIcon from "@/components/icons/favoriteIcon";
+import FavoriteIcon from "@/components/icons/favorite";
 import ShoppingBagOverlay from "@/components/header/overlay/shoppingBag/index";
 
 export default function IconsLeftMobileHeader() {

@@ -1,4 +1,4 @@
-import GridOverlay from "@/components/ui/gridOverlay";
+import GridOverlay from "@/components/ui/grid-overlay";
 
 interface GridProps {
   children: React.ReactNode;

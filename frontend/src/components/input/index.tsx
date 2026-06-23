@@ -1,10 +1,10 @@
 "use client";
 
 import { useRef, ComponentProps, ComponentType } from "react";
-import CancelIcon from "@/components/icons/cancelIcon";
+import CancelIcon from "@/components/icons/cancel";
 import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
-import AlertIcon from "../icons/alertIcon";
+import AlertIcon from "../icons/alert";
 
 const styles = {
   base: "relative flex items-center justify-center h-10 gap-1 px-4 text-body-xs border",

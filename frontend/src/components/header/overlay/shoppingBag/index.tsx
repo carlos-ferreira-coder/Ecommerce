@@ -1,10 +1,10 @@
 "use client";
 
-import ShoppingBagIcon from "@/components/icons/shoppingBagIcon";
+import ShoppingBagIcon from "@/components/icons/shopping-bag";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 import Input from "@/components/input/index";
-import ProfileIcon from "@/components/icons/profileIcon";
+import ProfileIcon from "@/components/icons/profile";
 
 export default function ShoppingBagWrapperOverlayHeader() {
   return (

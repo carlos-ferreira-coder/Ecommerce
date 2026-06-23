@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ProfileIcon from "@/components/icons/profileIcon";
-import FavoriteIcon from "@/components/icons/favoriteIcon";
+import ProfileIcon from "@/components/icons/profile";
+import FavoriteIcon from "@/components/icons/favorite";
 import SearchOverlay from "@/components/header/overlay/search/index";
 import ShoppingBagOverlay from "@/components/header/overlay/shoppingBag/index";
 import clsx from "clsx";

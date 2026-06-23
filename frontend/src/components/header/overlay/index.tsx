@@ -2,7 +2,7 @@
 
 import Container from "@/components/ui/container";
 import { motion } from "framer-motion";
-import { useHeaderOverlayStore } from "@/store/headerOverlay";
+import { useHeaderOverlayStore } from "@/store/header-overlay";
 interface OverlayHeaderProps {
   children: React.ReactNode;
 }

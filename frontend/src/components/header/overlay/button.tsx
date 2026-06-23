@@ -4,8 +4,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   HeaderOverlayType,
   useHeaderOverlayStore,
-} from "@/store/headerOverlay";
-import CancelIcon from "@/components/icons/cancelIcon";
+} from "@/store/header-overlay";
+import CancelIcon from "@/components/icons/cancel";
 import { ComponentType } from "react";
 import clsx from "clsx";
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { navigationHeader } from "@/components/header/navigation";
-import MenuIcon from "@/components/icons/menuIcon";
+import MenuIcon from "@/components/icons/menu";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 import Hamburger from "@/components/header/overlay/menu/hamburger";

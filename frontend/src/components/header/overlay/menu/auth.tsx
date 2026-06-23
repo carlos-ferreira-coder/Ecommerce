@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ProfileIcon from "@/components/icons/profileIcon";
+import ProfileIcon from "@/components/icons/profile";
 import Button from "@/components/button";
 
 interface AuthMenuOverlayHeaderProps {
