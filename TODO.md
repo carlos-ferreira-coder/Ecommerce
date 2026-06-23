@@ -13,3 +13,11 @@
 # frontend/src/components/header/overlay/menu/index
 
 - Fazer a troca de components quando logado
+
+---
+
+# frontend/src/components/header/desktop/icons
+
+- Indicar que está logado no profileIcon
+
+--

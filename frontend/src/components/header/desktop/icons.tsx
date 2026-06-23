@@ -6,6 +6,7 @@ import ProfileIcon from "@/components/icons/profileIcon";
 import FavoriteIcon from "@/components/icons/favoriteIcon";
 import SearchOverlay from "@/components/header/overlay/search/index";
 import ShoppingBagOverlay from "@/components/header/overlay/shoppingBag/index";
+import clsx from "clsx";
 
 export default function IconsDesktopHeader() {
   const pathname = usePathname();
@@ -15,8 +16,11 @@ export default function IconsDesktopHeader() {
       <SearchOverlay />
       <Link href="/profile">
         <ProfileIcon
-          active={pathname.startsWith("/profile")}
-          className="hover:bg-gray-200"
+          active={false}
+          className={clsx(
+            "hover:bg-gray-200",
+            pathname.startsWith("/profile") && "bg-gray-400",
+          )}
         />
       </Link>
       <Link href="/favorite">

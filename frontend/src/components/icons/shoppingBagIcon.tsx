@@ -1,43 +1,8 @@
-import clsx from "clsx";
-
 interface ShoppingBagIconProps {
-  quantity?: number;
   className?: string;
 }
 
-export default function ShoppingBagIcon({
-  quantity,
-  className,
-}: ShoppingBagIconProps) {
-  let badge: string | undefined;
-
-  if (quantity && quantity > 0) {
-    badge = quantity > 99 ? "99+" : quantity.toString();
-  }
-
-  return (
-    <div className="relative">
-      <Icon className={className} />
-
-      {badge && (
-        <div
-          className={clsx(
-            "absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-caption-sm leading-[180%] tracking-normal",
-            className,
-          )}
-        >
-          {badge}
-        </div>
-      )}
-    </div>
-  );
-}
-
-interface IconProps {
-  className?: string;
-}
-
-function Icon({ className }: IconProps) {
+export default function ShoppingBagIcon({ className }: ShoppingBagIconProps) {
   return (
     <svg
       width="24"
