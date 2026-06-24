@@ -5,20 +5,34 @@ import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
 import Input from "@/components/input/index";
 import ProfileIcon from "@/components/icons/profile";
+import { useCart } from "@/hooks/use-cart";
 
-export default function ShoppingBagWrapperOverlayHeader() {
+export default function CartWrapperOverlayHeader() {
+  const { data: cart } = useCart();
+
+  if (!cart) {
+    return (
+      <ButtonOverlay
+        Icon={ShoppingBagIcon}
+        overlayType="cart"
+        OverlayComponent={CartOverlayHeader}
+        showCloseIcon={false}
+      />
+    );
+  }
+
   return (
     <ButtonOverlay
       Icon={ShoppingBagIcon}
-      overlayType="shopping-bag"
-      OverlayComponent={ShoppingBagOverlayHeader}
+      overlayType="cart"
+      OverlayComponent={CartOverlayHeader}
       showCloseIcon={false}
-      quantity={10}
+      quantity={cart.summary.quantity}
     />
   );
 }
 
-export function ShoppingBagOverlayHeader() {
+export function CartOverlayHeader() {
   return (
     <OverlayHeader>
       <div className="flex flex-col items-center justify-center h-75 gap-5">

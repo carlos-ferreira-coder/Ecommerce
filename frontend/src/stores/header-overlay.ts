@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type HeaderOverlayType = "menu" | "search" | "shopping-bag" | null;
+export type HeaderOverlayType = "menu" | "search" | "cart" | null;
 
 interface useHeaderOverlayStoreProps {
   headerOverlay: HeaderOverlayType;
