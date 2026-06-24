@@ -4,10 +4,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   HeaderOverlayType,
   useHeaderOverlayStore,
-} from "@/store/header-overlay";
+} from "@/stores/header-overlay";
 import CancelIcon from "@/components/icons/cancel";
 import { ComponentType } from "react";
-import clsx from "clsx";
+import Button from "@/components/button";
 
 interface ButtonOverlayHeaderProps {
   Icon: ComponentType<{ className?: string }>;
@@ -29,10 +29,10 @@ export default function ButtonOverlayHeader({
 
   return (
     <>
-      <button
-        type="button"
-        className="cursor-pointer"
-        aria-label={isOpen ? "Fechar" : "Abrir"}
+      <Button
+        isIcon
+        variant="text"
+        className="text-gray-900 hover:text-gray-900 active:text-gray-900"
         onClick={() => toggleHeaderOverlay(overlayType)}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -55,9 +55,7 @@ export default function ButtonOverlayHeader({
               transition={{ duration: 0.1 }}
             >
               <div className="relative">
-                <Icon
-                  className={clsx("hover:bg-gray-200", isOpen && "bg-gray-400")}
-                />
+                <Icon />
 
                 {quantity && quantity > 0 && (
                   <div className="absolute -top-2 -right-2 flex items-center justify-center h-4 w-4 text-caption-sm leading-[180%] tracking-normal">
@@ -68,7 +66,7 @@ export default function ButtonOverlayHeader({
             </motion.div>
           )}
         </AnimatePresence>
-      </button>
+      </Button>
 
       <AnimatePresence initial={false}>
         {isOpen && <OverlayComponent />}

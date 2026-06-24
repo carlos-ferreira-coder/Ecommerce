@@ -1,12 +1,12 @@
 "use client";
 
-import clsx from "clsx";
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { ChangeEvent } from "react";
+import { useQueryState, parseAsString, debounce } from "nuqs";
 import SearchIcon from "@/components/icons/search";
 import CancelIcon from "@/components/icons/cancel";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
+import Button from "@/components/button";
 
 export default function SearchWrapperOverlayHeader() {
   return (
@@ -19,20 +19,20 @@ export default function SearchWrapperOverlayHeader() {
 }
 
 export function SearchOverlayHeader() {
-  const [search, setSearch] = useState<string>("");
-  const [isFocused, setIsFocused] = useState(false);
+  const [search, setSearch] = useQueryState("q", parseAsString.withDefault(""));
+
+  function handleSearchUpdate(
+    event: ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) {
+    setSearch(event.target.value, {
+      limitUrlUpdates: event.target.value === "" ? undefined : debounce(500),
+    });
+  }
 
   return (
     <OverlayHeader>
       <div className="flex h-22 lg:h-38 items-center">
-        <div
-          className={clsx(
-            "group flex items-center gap-2 w-full h-10 lg:h-14 px-4 border-b",
-            isFocused
-              ? "border-primary-500 text-primary-500"
-              : "border-gray-500 text-gray-500",
-          )}
-        >
+        <div className="group flex items-center gap-2 w-full h-10 lg:h-14 px-4 border-b border-gray-500 text-gray-500 focus-within:border-primary-500 focus-within:text-primary-500">
           <SearchIcon />
 
           <input
@@ -41,25 +41,17 @@ export function SearchOverlayHeader() {
             name="search"
             placeholder="Pesquisar"
             value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            onChange={handleSearchUpdate}
             className="flex-1 outline-none bg-transparent text-mobile-body-sm lg:text-body-xl"
           />
 
-          <motion.button
-            type="button"
-            className="cursor-pointer"
-            onClick={() => setSearch("")}
-            initial={false}
-            animate={{
-              opacity: search ? 1 : 0,
-              pointerEvents: search ? "auto" : "none",
-            }}
-            transition={{ duration: 0.2 }}
+          <Button
+            variant="text"
+            onClick={() => setSearch(null)}
+            className={search ? "opacity-100" : "opacity-0 pointer-events-none"}
           >
             <CancelIcon />
-          </motion.button>
+          </Button>
         </div>
       </div>
     </OverlayHeader>
