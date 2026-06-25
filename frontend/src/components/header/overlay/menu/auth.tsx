@@ -1,15 +1,12 @@
 import Link from "next/link";
 import ProfileIcon from "@/components/icons/profile";
 import Button from "@/components/button";
+import { useAuth } from "@/hooks/use-auth";
 
-interface AuthMenuOverlayHeaderProps {
-  isLogged: boolean;
-}
+export default function AuthMenuOverlayHeader() {
+  const userRes = useAuth();
 
-export default function AuthMenuOverlayHeader({
-  isLogged,
-}: AuthMenuOverlayHeaderProps) {
-  if (isLogged) {
+  if (userRes.isSuccess) {
     return (
       <div className="flex justify-center py-4 border-t border-gray-400">
         <Link href="/profile/logout" className="w-full">

@@ -1,15 +1,15 @@
 type NavigationHeaderType = {
   title: string;
   href: string;
-  columns: {
+  list?: {
     title: string;
     items: {
       label: string;
       href: string;
     }[];
   }[];
-  banners: {
-    title: string;
+  banners?: {
+    title?: string;
     href: string;
     image: string;
   }[];
@@ -19,7 +19,7 @@ export const navigationHeader: NavigationHeaderType = [
   {
     title: "Collection",
     href: "/collection",
-    columns: [
+    list: [
       {
         title: "Category",
         items: [
@@ -104,19 +104,19 @@ export const navigationHeader: NavigationHeaderType = [
       {
         title: "Blouses",
         href: "/collection/blouses-tops",
-        image: "/images/menu/blouses.png",
+        image: "/images/menu/12382.png",
       },
       {
         title: "Plus Size",
         href: "/plus-size",
-        image: "/images/menu/plus-size.png",
+        image: "/images/menu/12383.png",
       },
     ],
   },
   {
     title: "New In",
     href: "/new-in",
-    columns: [
+    list: [
       {
         title: "Category",
         items: [
@@ -176,61 +176,28 @@ export const navigationHeader: NavigationHeaderType = [
       {
         title: "Fall Collection",
         href: "/fall-collection",
-        image: "/images/menu/fall-collection.png",
+        image: "/images/menu/12384.png",
       },
       {
         title: "Blouses",
         href: "/new-in/tops-blouses",
-        image: "/images/menu/blouses.png",
+        image: "/images/menu/12385.png",
       },
       {
         title: "Dresses",
         href: "/new-in/dresses-jumpsuits",
-        image: "/images/menu/dresses.png",
+        image: "/images/menu/12386.png",
       },
     ],
   },
   {
     title: "Modiweek",
     href: "/modiweek",
-    columns: [
-      {
-        title: "Category",
-        items: [
-          {
-            label: "Shop All",
-            href: "/modiweek",
-          },
-        ],
-      },
-    ],
-    banners: [
-      {
-        title: "Pants",
-        href: "/modiweek/pants",
-        image: "/images/menu/modiweek-pants.png",
-      },
-      {
-        title: "Dresses",
-        href: "/modiweek/dresses-jumpsuits",
-        image: "/images/menu/modiweek-dresses.png",
-      },
-      {
-        title: "Blouses",
-        href: "/modiweek/tops-blouses",
-        image: "/images/menu/modiweek-blouses.png",
-      },
-      {
-        title: "Tees",
-        href: "/modiweek/Tees",
-        image: "/images/menu/modiweek-tees.png",
-      },
-    ],
   },
   {
     title: "Plus Size",
     href: "/plus-size",
-    columns: [
+    list: [
       {
         title: "Category",
         items: [
@@ -273,24 +240,24 @@ export const navigationHeader: NavigationHeaderType = [
       {
         title: "Pants",
         href: "/plus-size/pants",
-        image: "/images/menu/plus-size-pants.png",
+        image: "/images/menu/12387.png",
       },
       {
         title: "Dresses",
         href: "/plus-size/dresses-jumpsuits",
-        image: "/images/menu/plus-size-dresses.png",
+        image: "/images/menu/12388.png",
       },
       {
         title: "Blouses",
         href: "/plus-size/tops-blouses",
-        image: "/images/menu/plus-size-blouses.png",
+        image: "/images/menu/12389.png",
       },
     ],
   },
   {
     title: "Sustainability",
     href: "/sustainability",
-    columns: [
+    list: [
       {
         title: "Category",
         items: [
@@ -323,14 +290,12 @@ export const navigationHeader: NavigationHeaderType = [
     ],
     banners: [
       {
-        title: "Our Mission",
         href: "/sustainability/mission",
-        image: "/images/menu/sustainability-mission.png",
+        image: "/images/menu/12390.png",
       },
       {
-        title: "Materials",
         href: "/sustainability/materials",
-        image: "/images/menu/sustainability-materials.png",
+        image: "/images/menu/12391.png",
       },
     ],
   },

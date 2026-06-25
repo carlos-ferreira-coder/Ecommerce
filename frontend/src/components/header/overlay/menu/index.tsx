@@ -42,7 +42,7 @@ export function MenuOverlayHeader() {
         ))}
       </nav>
 
-      <AuthMenu isLogged />
+      <AuthMenu />
     </OverlayHeader>
   );
 }

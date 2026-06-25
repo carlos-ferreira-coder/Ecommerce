@@ -16,44 +16,67 @@ export default function HamburgerMenuOverlayHeader({
 }: MenuAccordionProps) {
   return (
     <div className="border-b border-black">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="flex items-center justify-between w-full cursor-pointer"
-      >
-        <div className="text-mobile-body-lg text-black">{navigation.title}</div>
-
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
+      {!navigation.list ? (
+        <Link
+          href={navigation.href}
+          className="flex items-center w-full text-mobile-body-lg text-black cursor-pointer"
         >
-          <ArrowDownIcon />
-        </motion.div>
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="overflow-hidden"
+          {navigation.title}
+        </Link>
+      ) : (
+        <>
+          <button
+            type="button"
+            onClick={onToggle}
+            className="flex items-center justify-between w-full cursor-pointer"
           >
-            <div className="flex flex-col gap-6 my-6">
-              {navigation.columns[0].items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="flex items-center h-8 pl-8 text-mobile-body-lg text-gray-800"
-                >
-                  {item.label}
-                </Link>
-              ))}
+            <div className="text-mobile-body-lg text-black">
+              {navigation.title}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ArrowDownIcon />
+            </motion.div>
+          </button>
+
+          <AnimatePresence initial={false}>
+            {isOpen && navigation.list?.[0] && (
+              <Dropdown list={navigation.list[0]} />
+            )}
+          </AnimatePresence>
+        </>
+      )}
     </div>
+  );
+}
+
+interface DropdownProps {
+  list: NonNullable<(typeof navigationHeader)[number]["list"]>[number];
+}
+
+function Dropdown({ list }: DropdownProps) {
+  return (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{ height: "auto", opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="overflow-hidden"
+    >
+      <div className="flex flex-col gap-6 my-6">
+        {list.items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="flex items-center h-8 pl-8 text-mobile-body-lg text-gray-800"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+    </motion.div>
   );
 }
