@@ -3,8 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { ComponentProps } from "react";
 
 const styles = {
-  base: "flex items-center justify-center text-button-sm lg:text-button-lg transition-all duration-200",
-  size: "h-10 lg:h-12 px-6 gap-1",
+  base: "flex items-center justify-center h-10 lg:h-12 px-6 gap-1 transition-all duration-200 text-button-sm lg:text-button-lg",
   interactive:
     "cursor-pointer active:translate-y-0.5 lg:hover:-translate-y-0.5 lg:active:translate-y-0",
   light: {
@@ -24,13 +23,11 @@ const styles = {
 } as const;
 
 interface ButtonProps extends ComponentProps<"button"> {
-  isIcon?: boolean;
   variant?: "fill" | "stroke" | "text";
   background?: "light" | "dark";
 }
 
 export default function Button({
-  isIcon = false,
   variant = "fill",
   background = "light",
   disabled,
@@ -40,11 +37,11 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
+      type="button"
       disabled={disabled}
       className={twMerge(
         clsx(
           styles["base"],
-          !isIcon && styles["size"],
           !disabled && styles["interactive"],
           disabled ? styles[background].disabled : styles[background][variant],
           className,

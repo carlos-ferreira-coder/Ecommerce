@@ -7,7 +7,7 @@ import {
 } from "@/stores/header-overlay";
 import CancelIcon from "@/components/icons/cancel";
 import { ComponentType } from "react";
-import Button from "@/components/button";
+import ButtonInteractive from "@/components/button/interactive";
 
 interface ButtonOverlayHeaderProps {
   Icon: ComponentType<{ className?: string }>;
@@ -29,10 +29,8 @@ export default function ButtonOverlayHeader({
 
   return (
     <>
-      <Button
-        isIcon
-        variant="text"
-        className="text-gray-900 hover:text-gray-900 active:text-gray-900"
+      <ButtonInteractive
+        className="text-gray-900"
         onClick={() => toggleHeaderOverlay(overlayType)}
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -66,7 +64,7 @@ export default function ButtonOverlayHeader({
             </motion.div>
           )}
         </AnimatePresence>
-      </Button>
+      </ButtonInteractive>
 
       <AnimatePresence initial={false}>
         {isOpen && <OverlayComponent />}

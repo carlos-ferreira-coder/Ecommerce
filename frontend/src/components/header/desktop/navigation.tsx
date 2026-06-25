@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion";
 import { navigationHeader } from "@/components/header/navigation";
 import { useHeaderOverlayStore } from "@/stores/header-overlay";
 import MenuOverlayHeader from "@/components/header/overlay/menu/desktop/index";
+import ButtonInteractive from "@/components/button/interactive";
 
 export default function NavigationDesktopHeader() {
   const { headerOverlay, toggleHeaderOverlay } = useHeaderOverlayStore();
@@ -15,22 +16,20 @@ export default function NavigationDesktopHeader() {
         {navigationHeader.map((item) =>
           !(item.list || item.banners) ? (
             <li key={item.title}>
-              <Link
-                href={item.href}
-                className="text-body-lg text-gray-800 hover:text-black"
-              >
-                {item.title}
+              <Link href={item.href}>
+                <ButtonInteractive className="text-body-lg text-gray-800 hover:text-black active:text-black">
+                  {item.title}
+                </ButtonInteractive>
               </Link>
             </li>
           ) : (
             <li key={item.title}>
-              <button
-                type="button"
+              <ButtonInteractive
                 onClick={() => toggleHeaderOverlay(item.title)}
-                className="text-body-lg text-gray-800 hover:text-black"
+                className="text-body-lg text-gray-800 hover:text-black active:text-black"
               >
                 {item.title}
-              </button>
+              </ButtonInteractive>
 
               <AnimatePresence initial={false}>
                 {headerOverlay === item.title && (
