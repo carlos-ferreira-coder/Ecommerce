@@ -1,4 +1,4 @@
-import MenuOverlay from "@/components/header/overlay/menu/index";
+import MenuOverlay from "@/components/header/overlay/menu/mobile/index";
 import SearchOverlay from "@/components/header/overlay/search/index";
 
 export default function IconsLeftMobileHeader() {

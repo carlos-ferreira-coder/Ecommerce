@@ -5,8 +5,8 @@ import { navigationHeader } from "@/components/header/navigation";
 import MenuIcon from "@/components/icons/menu";
 import ButtonOverlay from "@/components/header/overlay/button";
 import OverlayHeader from "@/components/header/overlay/index";
-import Hamburger from "@/components/header/overlay/menu/hamburger";
-import AuthMenu from "@/components/header/overlay/menu/auth";
+import Hamburger from "@/components/header/overlay/menu/mobile/hamburger";
+import AuthMenu from "@/components/header/overlay/menu/mobile/auth";
 
 export default function MenuWrapperOverlayHeader() {
   return (

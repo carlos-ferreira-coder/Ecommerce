@@ -1,10 +1,14 @@
+import { navigationHeader } from "@/components/header/navigation";
 import { create } from "zustand";
 
 export type HeaderOverlayType = "menu" | "search" | "cart" | null;
+type NavigationOverlayType = (typeof navigationHeader)[number]["title"];
 
 interface useHeaderOverlayStoreProps {
-  headerOverlay: HeaderOverlayType;
-  toggleHeaderOverlay: (overlay: HeaderOverlayType) => void;
+  headerOverlay: HeaderOverlayType | NavigationOverlayType;
+  toggleHeaderOverlay: (
+    overlay: HeaderOverlayType | NavigationOverlayType,
+  ) => void;
   closeHeaderOverlay: () => void;
 }
 
