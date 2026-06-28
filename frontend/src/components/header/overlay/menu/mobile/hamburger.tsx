@@ -16,7 +16,7 @@ export default function HamburgerMenuOverlayHeader({
 }: MenuAccordionProps) {
   return (
     <div className="border-b border-black">
-      {!navigation.list ? (
+      {!navigation.lists ? (
         <Link
           href={navigation.href}
           className="flex items-center w-full text-mobile-body-lg text-black cursor-pointer"
@@ -43,8 +43,8 @@ export default function HamburgerMenuOverlayHeader({
           </button>
 
           <AnimatePresence initial={false}>
-            {isOpen && navigation.list?.[0] && (
-              <Dropdown list={navigation.list[0]} />
+            {isOpen && navigation.lists?.[0] && (
+              <Dropdown list={navigation.lists[0]} />
             )}
           </AnimatePresence>
         </>
@@ -54,7 +54,7 @@ export default function HamburgerMenuOverlayHeader({
 }
 
 interface DropdownProps {
-  list: NonNullable<(typeof navigationHeader)[number]["list"]>[number];
+  list: NonNullable<(typeof navigationHeader)[number]["lists"]>[number];
 }
 
 function Dropdown({ list }: DropdownProps) {

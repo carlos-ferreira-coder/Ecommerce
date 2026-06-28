@@ -1,25 +1,33 @@
 type NavigationHeaderType = {
   title: string;
   href: string;
-  list?: {
+
+  lists?: {
     title: string;
     items: {
       label: string;
       href: string;
     }[];
   }[];
+
   banners?: {
-    title?: string;
-    href: string;
-    image: string;
-  }[];
+    columns: number;
+    showTitle: boolean;
+    items: {
+      title: string;
+      href: string;
+      image: string;
+      width: number;
+      height: number;
+    }[];
+  };
 }[];
 
 export const navigationHeader: NavigationHeaderType = [
   {
     title: "Collection",
     href: "/collection",
-    list: [
+    lists: [
       {
         title: "Category",
         items: [
@@ -100,23 +108,31 @@ export const navigationHeader: NavigationHeaderType = [
         ],
       },
     ],
-    banners: [
-      {
-        title: "Blouses",
-        href: "/collection/blouses-tops",
-        image: "/images/menu/12382.png",
-      },
-      {
-        title: "Plus Size",
-        href: "/plus-size",
-        image: "/images/menu/12383.png",
-      },
-    ],
+    banners: {
+      columns: 6,
+      showTitle: true,
+      items: [
+        {
+          title: "Blouses",
+          href: "/collection/blouses-tops",
+          image: "/images/menu/12382.png",
+          width: 288,
+          height: 420,
+        },
+        {
+          title: "Plus Size",
+          href: "/plus-size",
+          image: "/images/menu/12383.png",
+          width: 288,
+          height: 420,
+        },
+      ],
+    },
   },
   {
     title: "New In",
     href: "/new-in",
-    list: [
+    lists: [
       {
         title: "Category",
         items: [
@@ -172,23 +188,33 @@ export const navigationHeader: NavigationHeaderType = [
         ],
       },
     ],
-    banners: [
-      {
-        title: "Fall Collection",
-        href: "/fall-collection",
-        image: "/images/menu/12384.png",
-      },
-      {
-        title: "Blouses",
-        href: "/new-in/tops-blouses",
-        image: "/images/menu/12385.png",
-      },
-      {
-        title: "Dresses",
-        href: "/new-in/dresses-jumpsuits",
-        image: "/images/menu/12386.png",
-      },
-    ],
+    banners: {
+      columns: 7,
+      showTitle: true,
+      items: [
+        {
+          title: "Fall Collection",
+          href: "/fall-collection",
+          image: "/images/menu/12384.png",
+          width: 208,
+          height: 420,
+        },
+        {
+          title: "Blouses",
+          href: "/new-in/tops-blouses",
+          image: "/images/menu/12385.png",
+          width: 208,
+          height: 420,
+        },
+        {
+          title: "Dresses",
+          href: "/new-in/dresses-jumpsuits",
+          image: "/images/menu/12386.png",
+          width: 208,
+          height: 420,
+        },
+      ],
+    },
   },
   {
     title: "Modiweek",
@@ -197,7 +223,7 @@ export const navigationHeader: NavigationHeaderType = [
   {
     title: "Plus Size",
     href: "/plus-size",
-    list: [
+    lists: [
       {
         title: "Category",
         items: [
@@ -236,28 +262,38 @@ export const navigationHeader: NavigationHeaderType = [
         ],
       },
     ],
-    banners: [
-      {
-        title: "Pants",
-        href: "/plus-size/pants",
-        image: "/images/menu/12387.png",
-      },
-      {
-        title: "Dresses",
-        href: "/plus-size/dresses-jumpsuits",
-        image: "/images/menu/12388.png",
-      },
-      {
-        title: "Blouses",
-        href: "/plus-size/tops-blouses",
-        image: "/images/menu/12389.png",
-      },
-    ],
+    banners: {
+      columns: 7,
+      showTitle: true,
+      items: [
+        {
+          title: "Pants",
+          href: "/plus-size/pants",
+          image: "/images/menu/12387.png",
+          width: 208,
+          height: 420,
+        },
+        {
+          title: "Dresses",
+          href: "/plus-size/dresses-jumpsuits",
+          image: "/images/menu/12388.png",
+          width: 208,
+          height: 420,
+        },
+        {
+          title: "Blouses",
+          href: "/plus-size/tops-blouses",
+          image: "/images/menu/12389.png",
+          width: 208,
+          height: 420,
+        },
+      ],
+    },
   },
   {
     title: "Sustainability",
     href: "/sustainability",
-    list: [
+    lists: [
       {
         title: "Category",
         items: [
@@ -288,15 +324,25 @@ export const navigationHeader: NavigationHeaderType = [
         ],
       },
     ],
-    banners: [
-      {
-        href: "/sustainability/mission",
-        image: "/images/menu/12390.png",
-      },
-      {
-        href: "/sustainability/materials",
-        image: "/images/menu/12391.png",
-      },
-    ],
+    banners: {
+      columns: 8,
+      showTitle: false,
+      items: [
+        {
+          title: "mission",
+          href: "/sustainability/mission",
+          image: "/images/menu/12390.png",
+          width: 392,
+          height: 438,
+        },
+        {
+          title: "materials",
+          href: "/sustainability/materials",
+          image: "/images/menu/12391.png",
+          width: 392,
+          height: 438,
+        },
+      ],
+    },
   },
 ];

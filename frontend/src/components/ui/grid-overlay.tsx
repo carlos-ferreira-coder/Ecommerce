@@ -1,13 +1,13 @@
 import clsx from "clsx";
 
-const isDevelopment = process.env.NODE_ENV === "development";
+const gridOverlay = process.env.NEXT_PUBLIC_GRID_OVERLAY === "true";
 
 interface GridProps {
   children: React.ReactNode;
 }
 
 export default function GridOverlay({ children }: GridProps) {
-  if (!isDevelopment) {
+  if (!gridOverlay) {
     return <>{children}</>;
   }
 
